@@ -1247,7 +1247,7 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>Prompt &amp; Completion Length</td>
+                    <td>Training Example Length (Prompt + Completion)</td>
                     <td><span class="hero-status-unsupported">—</span></td>
                     <td>
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-label="Supported">
@@ -1646,7 +1646,7 @@
         const steps = [
           "Parsing JSONL file",
           "Validating field schema",
-          "Checking length distribution",
+          "Checking training example length",
           "Evaluating dataset size",
         ];
         if (selectedTechnique === "DPO") {
@@ -1748,7 +1748,7 @@
         else if (length.truncatedPct > 0) lenStatus = "warning";
         checks.push({
           key: "length",
-          title: "Prompt & Completion Length",
+          title: "Training Example Length",
           affected: length.truncatedCount,
           status: lenStatus,
           finding:
