@@ -172,30 +172,32 @@
 
       .hero {
         text-align: left;
+        display: grid;
+        gap: var(--space-6);
       }
 
       .hero-copy {
         padding: 0 var(--space-4);
+        max-width: 720px;
       }
 
       .hero-eyebrow {
+        width: fit-content;
         display: inline-flex;
         align-items: center;
-        gap: 8px;
-        margin-bottom: 12px;
+        margin-bottom: var(--space-3);
+        background: var(--accent-dim);
         color: var(--accent);
-        font-size: 11px;
-        font-weight: 500;
+        font-size: 12px;
+        font-weight: 700;
         letter-spacing: 0.08em;
         text-transform: uppercase;
+        border-radius: 999px;
+        padding: var(--space-2) var(--space-3);
       }
 
       .hero-eyebrow-dot {
-        width: 6px;
-        height: 6px;
-        border-radius: 50%;
-        background: var(--accent);
-        flex-shrink: 0;
+        display: none;
       }
 
       .hero-title {
@@ -217,13 +219,56 @@
         text-align: left;
       }
 
+      .hero-cta-row {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: var(--space-3);
+      }
+
+      .hero-cta-btn {
+        min-height: 44px;
+        border-radius: var(--radius-md);
+        border: 1px solid transparent;
+        padding: 0 var(--space-6);
+        font-size: 14px;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        cursor: pointer;
+        transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+      }
+
+      .hero-cta-btn.primary {
+        background: var(--accent);
+        color: #ffffff;
+      }
+
+      .hero-cta-btn.primary:hover {
+        background: var(--accent-hover);
+      }
+
+      .hero-cta-btn.ghost {
+        background: var(--surface);
+        border-color: var(--border);
+        color: var(--text);
+      }
+
+      .hero-cta-btn.ghost:hover {
+        background: var(--accent-dim);
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
       .hero-table-wrap {
         width: 100%;
         border: 1px solid var(--border-strong);
         border-radius: var(--radius-lg);
         overflow: hidden;
-        margin-bottom: 32px;
+        margin-bottom: var(--space-4);
         background: var(--surface);
+        box-shadow: var(--shadow-sm);
       }
 
       .hero-table {
@@ -247,7 +292,7 @@
       }
 
       .hero-table th {
-        padding: 10px 16px;
+        padding: 12px 16px;
         font-size: 11px;
         letter-spacing: 0.06em;
         text-transform: uppercase;
@@ -310,7 +355,7 @@
       }
 
       .hero-table td {
-        padding: 11px 16px;
+        padding: 14px 16px;
         font-size: 13px;
         text-align: center;
         color: var(--text);
@@ -332,8 +377,8 @@
         display: block;
         margin-top: 2px;
         color: var(--text-muted);
-        font-size: 12px;
-        line-height: 1.45;
+        font-size: 13px;
+        line-height: 1.5;
         font-weight: 500;
       }
 
@@ -1072,6 +1117,10 @@
           width: 100%;
         }
 
+        .hero-cta-btn {
+          width: 100%;
+        }
+
         .bottom-actions {
           grid-template-columns: 1fr;
         }
@@ -1222,10 +1271,14 @@
                 <span class="hero-eyebrow-dot" aria-hidden="true"></span>
                 <span>SageMaker Model Customization · Pre-flight Checker</span>
               </div>
-              <h1 class="hero-title">Catch fine-tuning data problems<br />before they cost you.</h1>
+              <h1 class="hero-title">Catch fine-tuning data problems before they cost you.</h1>
               <p class="hero-subtitle">
                 SageMaker validates your JSONL schema at job submission — nothing more. sm/dataquality runs four LLM-specific checks in your browser before you launch a training job.
               </p>
+              <div class="hero-cta-row">
+                <button class="hero-cta-btn primary" id="heroStartCheck" type="button">Start Data Check →</button>
+                <button class="hero-cta-btn ghost" id="heroPickTechnique" type="button">I already have data - choose technique</button>
+              </div>
             </div>
             <div class="hero-table-wrap" role="region" aria-label="Feature comparison: SageMaker and sm/dataquality">
               <table class="hero-table">
@@ -1329,7 +1382,7 @@
               </div>
             </div>
           </section>
-          <div class="card">
+          <div class="card" id="datasetCard">
             <div class="section-label">Dataset</div>
             <label class="upload-zone" id="uploadZone" for="fileInput" tabindex="0" role="button" aria-label="Upload JSONL dataset">
               <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
@@ -1431,6 +1484,25 @@
           if (!sampleSelect.value) return;
           loadSampleFile(sampleSelect.value);
         });
+
+        const heroStartCheck = document.getElementById("heroStartCheck");
+        if (heroStartCheck) {
+          heroStartCheck.addEventListener("click", () => {
+            const datasetCard = document.getElementById("datasetCard");
+            if (datasetCard) datasetCard.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "start" });
+          });
+        }
+
+        const heroPickTechnique = document.getElementById("heroPickTechnique");
+        if (heroPickTechnique) {
+          heroPickTechnique.addEventListener("click", () => {
+            const techniqueRow = document.getElementById("techniqueRow");
+            if (!techniqueRow) return;
+            techniqueRow.scrollIntoView({ behavior: reducedMotion ? "auto" : "smooth", block: "center" });
+            const firstTechnique = techniqueRow.querySelector(".technique-btn");
+            if (firstTechnique) firstTechnique.focus();
+          });
+        }
 
         const removeBtn = document.getElementById("removeFile");
         if (removeBtn) {
