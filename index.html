@@ -322,6 +322,21 @@
         font-weight: 500;
       }
 
+      .check-name {
+        display: block;
+        color: var(--text);
+        font-weight: 650;
+      }
+
+      .check-subtext {
+        display: block;
+        margin-top: 2px;
+        color: var(--text-muted);
+        font-size: 12px;
+        line-height: 1.45;
+        font-weight: 500;
+      }
+
       .hero-status-unsupported {
         color: var(--text-faint);
         font-size: 14px;
@@ -1232,7 +1247,10 @@
                 </thead>
                 <tbody>
                   <tr>
-                    <td>JSONL Schema Validation</td>
+                    <td>
+                      <span class="check-name">JSONL Schema Validation</span>
+                      <span class="check-subtext">Prevents malformed rows from breaking or degrading training quality.</span>
+                    </td>
                     <td>
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-label="Supported">
                         <circle cx="8" cy="8" r="7" fill="rgba(74,222,128,0.12)"></circle>
@@ -1247,7 +1265,10 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>Training Example Length (Prompt + Completion)</td>
+                    <td>
+                      <span class="check-name">Training Example Length (Prompt + Completion)</span>
+                      <span class="check-subtext">Catches examples that may be silently truncated at training time.</span>
+                    </td>
                     <td><span class="hero-status-unsupported">—</span></td>
                     <td>
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-label="Supported">
@@ -1257,7 +1278,10 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>Dataset Size for Technique</td>
+                    <td>
+                      <span class="check-name">Dataset Size for Technique</span>
+                      <span class="check-subtext">Shows whether data volume is sufficient for stable fine-tuning results.</span>
+                    </td>
                     <td><span class="hero-status-unsupported">—</span></td>
                     <td>
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-label="Supported">
@@ -1267,7 +1291,10 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>DPO Chosen/Rejected Divergence</td>
+                    <td>
+                      <span class="check-name">DPO Chosen/Rejected Divergence</span>
+                      <span class="check-subtext">Ensures preference pairs are meaningfully different enough to teach preferences.</span>
+                    </td>
                     <td><span class="hero-status-unsupported">—</span></td>
                     <td>
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-label="Supported">
@@ -1277,7 +1304,10 @@
                     </td>
                   </tr>
                   <tr>
-                    <td>Actionable Fix Recommendations</td>
+                    <td>
+                      <span class="check-name">Actionable Fix Recommendations</span>
+                      <span class="check-subtext">Turns findings into specific next steps before launching the job.</span>
+                    </td>
                     <td><span class="hero-status-unsupported">—</span></td>
                     <td>
                       <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-label="Supported">
