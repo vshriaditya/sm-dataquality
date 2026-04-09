@@ -1,0 +1,600 @@
+{"prompt": "What is 47 + 83?", "completion": "47 + 83 = 130", "answer": "130"}
+{"prompt": "What is 256 divided by 8?", "completion": "256 / 8 = 32", "answer": "32"}
+{"prompt": "What is 15% of 200?", "completion": "15% of 200 = 0.15 \u00d7 200 = 30", "answer": "30"}
+{"prompt": "What is the square root of 144?", "completion": "\u221a144 = 12", "answer": "12"}
+{"prompt": "What is 7 \u00d7 8?", "completion": "7 \u00d7 8 = 56", "answer": "56"}
+{"prompt": "What is 1000 - 337?", "completion": "1000 - 337 = 663", "answer": "663"}
+{"prompt": "What is 3 squared plus 4 squared?", "completion": "3\u00b2 + 4\u00b2 = 9 + 16 = 25", "answer": "25"}
+{"prompt": "What is 20% of 350?", "completion": "20% of 350 = 0.20 \u00d7 350 = 70", "answer": "70"}
+{"prompt": "What is 144 / 12?", "completion": "144 / 12 = 12", "answer": "12"}
+{"prompt": "What is 2 to the power of 8?", "completion": "2^8 = 256", "answer": "256"}
+{"prompt": "What is the capital of France?", "completion": "The capital of France is Paris.", "answer": "Paris"}
+{"prompt": "How many days are in a leap year?", "completion": "A leap year has 366 days.", "answer": "366"}
+{"prompt": "What is the chemical symbol for gold?", "completion": "The chemical symbol for gold is Au.", "answer": "Au"}
+{"prompt": "How many sides does a hexagon have?", "completion": "A hexagon has 6 sides.", "answer": "6"}
+{"prompt": "What is the boiling point of water in Celsius?", "completion": "Water boils at 100 degrees Celsius.", "answer": "100"}
+{"prompt": "What planet is closest to the Sun?", "completion": "Mercury is the closest planet to the Sun.", "answer": "Mercury"}
+{"prompt": "How many bytes are in a kilobyte?", "completion": "There are 1024 bytes in a kilobyte.", "answer": "1024"}
+{"prompt": "What is the speed of light in km/s?", "completion": "The speed of light is approximately 299,792 km/s.", "answer": "299792"}
+{"prompt": "What year was Python first released?", "completion": "Python was first released in 1991.", "answer": "1991"}
+{"prompt": "How many bits in a byte?", "completion": "There are 8 bits in a byte.", "answer": "8"}
+{"prompt": "What does len([1,2,3]) return in Python?", "completion": "len([1,2,3]) returns 3 because the list has 3 elements.", "answer": "3"}
+{"prompt": "What is the output of print(type(42))?", "completion": "print(type(42)) outputs <class 'int'>.", "answer": "<class 'int'>"}
+{"prompt": "What does range(5) produce?", "completion": "range(5) produces values 0, 1, 2, 3, 4.", "answer": "0,1,2,3,4"}
+{"prompt": "What is 10 % 3 in Python?", "completion": "10 % 3 = 1 (remainder of 10 divided by 3).", "answer": "1"}
+{"prompt": "What does bool(0) return?", "completion": "bool(0) returns False.", "answer": "False"}
+{"prompt": "What is the index of 'b' in ['a','b','c']?", "completion": "The index of 'b' is 1.", "answer": "1"}
+{"prompt": "What does str(123) return?", "completion": "str(123) returns the string '123'.", "answer": "123"}
+{"prompt": "What is 2**10 in Python?", "completion": "2**10 = 1024.", "answer": "1024"}
+{"prompt": "What does list(range(3)) return?", "completion": "list(range(3)) returns [0, 1, 2].", "answer": "[0, 1, 2]"}
+{"prompt": "What is the output of round(3.567, 2)?", "completion": "round(3.567, 2) returns 3.57.", "answer": "3.57"}
+{"prompt": "What is 47 + 83?", "completion": "47 + 83 = 130", "answer": "130"}
+{"prompt": "What is 256 divided by 8?", "completion": "256 / 8 = 32", "answer": "32"}
+{"prompt": "What is 15% of 200?", "completion": "15% of 200 = 0.15 \u00d7 200 = 30", "answer": "30"}
+{"prompt": "What is the square root of 144?", "completion": "\u221a144 = 12", "answer": "12"}
+{"prompt": "What is 7 \u00d7 8?", "completion": "7 \u00d7 8 = 56", "answer": "56"}
+{"prompt": "What is 1000 - 337?", "completion": "1000 - 337 = 663", "answer": "663"}
+{"prompt": "What is 3 squared plus 4 squared?", "completion": "3\u00b2 + 4\u00b2 = 9 + 16 = 25", "answer": "25"}
+{"prompt": "What is 20% of 350?", "completion": "20% of 350 = 0.20 \u00d7 350 = 70", "answer": "70"}
+{"prompt": "What is 144 / 12?", "completion": "144 / 12 = 12", "answer": "12"}
+{"prompt": "What is 2 to the power of 8?", "completion": "2^8 = 256", "answer": "256"}
+{"prompt": "What is the capital of France?", "completion": "The capital of France is Paris.", "answer": "Paris"}
+{"prompt": "How many days are in a leap year?", "completion": "A leap year has 366 days.", "answer": "366"}
+{"prompt": "What is the chemical symbol for gold?", "completion": "The chemical symbol for gold is Au.", "answer": "Au"}
+{"prompt": "How many sides does a hexagon have?", "completion": "A hexagon has 6 sides.", "answer": "6"}
+{"prompt": "What is the boiling point of water in Celsius?", "completion": "Water boils at 100 degrees Celsius.", "answer": "100"}
+{"prompt": "What planet is closest to the Sun?", "completion": "Mercury is the closest planet to the Sun.", "answer": "Mercury"}
+{"prompt": "How many bytes are in a kilobyte?", "completion": "There are 1024 bytes in a kilobyte.", "answer": "1024"}
+{"prompt": "What is the speed of light in km/s?", "completion": "The speed of light is approximately 299,792 km/s.", "answer": "299792"}
+{"prompt": "What year was Python first released?", "completion": "Python was first released in 1991.", "answer": "1991"}
+{"prompt": "How many bits in a byte?", "completion": "There are 8 bits in a byte.", "answer": "8"}
+{"prompt": "What does len([1,2,3]) return in Python?", "completion": "len([1,2,3]) returns 3 because the list has 3 elements.", "answer": "3"}
+{"prompt": "What is the output of print(type(42))?", "completion": "print(type(42)) outputs <class 'int'>.", "answer": "<class 'int'>"}
+{"prompt": "What does range(5) produce?", "completion": "range(5) produces values 0, 1, 2, 3, 4.", "answer": "0,1,2,3,4"}
+{"prompt": "What is 10 % 3 in Python?", "completion": "10 % 3 = 1 (remainder of 10 divided by 3).", "answer": "1"}
+{"prompt": "What does bool(0) return?", "completion": "bool(0) returns False.", "answer": "False"}
+{"prompt": "What is the index of 'b' in ['a','b','c']?", "completion": "The index of 'b' is 1.", "answer": "1"}
+{"prompt": "What does str(123) return?", "completion": "str(123) returns the string '123'.", "answer": "123"}
+{"prompt": "What is 2**10 in Python?", "completion": "2**10 = 1024.", "answer": "1024"}
+{"prompt": "What does list(range(3)) return?", "completion": "list(range(3)) returns [0, 1, 2].", "answer": "[0, 1, 2]"}
+{"prompt": "What is the output of round(3.567, 2)?", "completion": "round(3.567, 2) returns 3.57.", "answer": "3.57"}
+{"prompt": "What is 47 + 83?", "completion": "47 + 83 = 130", "answer": "130"}
+{"prompt": "What is 256 divided by 8?", "completion": "256 / 8 = 32", "answer": "32"}
+{"prompt": "What is 15% of 200?", "completion": "15% of 200 = 0.15 \u00d7 200 = 30", "answer": "30"}
+{"prompt": "What is the square root of 144?", "completion": "\u221a144 = 12", "answer": "12"}
+{"prompt": "What is 7 \u00d7 8?", "completion": "7 \u00d7 8 = 56", "answer": "56"}
+{"prompt": "What is 1000 - 337?", "completion": "1000 - 337 = 663", "answer": "663"}
+{"prompt": "What is 3 squared plus 4 squared?", "completion": "3\u00b2 + 4\u00b2 = 9 + 16 = 25", "answer": "25"}
+{"prompt": "What is 20% of 350?", "completion": "20% of 350 = 0.20 \u00d7 350 = 70", "answer": "70"}
+{"prompt": "What is 144 / 12?", "completion": "144 / 12 = 12", "answer": "12"}
+{"prompt": "What is 2 to the power of 8?", "completion": "2^8 = 256", "answer": "256"}
+{"prompt": "What is the capital of France?", "completion": "The capital of France is Paris.", "answer": "Paris"}
+{"prompt": "How many days are in a leap year?", "completion": "A leap year has 366 days.", "answer": "366"}
+{"prompt": "What is the chemical symbol for gold?", "completion": "The chemical symbol for gold is Au.", "answer": "Au"}
+{"prompt": "How many sides does a hexagon have?", "completion": "A hexagon has 6 sides.", "answer": "6"}
+{"prompt": "What is the boiling point of water in Celsius?", "completion": "Water boils at 100 degrees Celsius.", "answer": "100"}
+{"prompt": "What planet is closest to the Sun?", "completion": "Mercury is the closest planet to the Sun.", "answer": "Mercury"}
+{"prompt": "How many bytes are in a kilobyte?", "completion": "There are 1024 bytes in a kilobyte.", "answer": "1024"}
+{"prompt": "What is the speed of light in km/s?", "completion": "The speed of light is approximately 299,792 km/s.", "answer": "299792"}
+{"prompt": "What year was Python first released?", "completion": "Python was first released in 1991.", "answer": "1991"}
+{"prompt": "How many bits in a byte?", "completion": "There are 8 bits in a byte.", "answer": "8"}
+{"prompt": "What does len([1,2,3]) return in Python?", "completion": "len([1,2,3]) returns 3 because the list has 3 elements.", "answer": "3"}
+{"prompt": "What is the output of print(type(42))?", "completion": "print(type(42)) outputs <class 'int'>.", "answer": "<class 'int'>"}
+{"prompt": "What does range(5) produce?", "completion": "range(5) produces values 0, 1, 2, 3, 4.", "answer": "0,1,2,3,4"}
+{"prompt": "What is 10 % 3 in Python?", "completion": "10 % 3 = 1 (remainder of 10 divided by 3).", "answer": "1"}
+{"prompt": "What does bool(0) return?", "completion": "bool(0) returns False.", "answer": "False"}
+{"prompt": "What is the index of 'b' in ['a','b','c']?", "completion": "The index of 'b' is 1.", "answer": "1"}
+{"prompt": "What does str(123) return?", "completion": "str(123) returns the string '123'.", "answer": "123"}
+{"prompt": "What is 2**10 in Python?", "completion": "2**10 = 1024.", "answer": "1024"}
+{"prompt": "What does list(range(3)) return?", "completion": "list(range(3)) returns [0, 1, 2].", "answer": "[0, 1, 2]"}
+{"prompt": "What is the output of round(3.567, 2)?", "completion": "round(3.567, 2) returns 3.57.", "answer": "3.57"}
+{"prompt": "What is 47 + 83?", "completion": "47 + 83 = 130", "answer": "130"}
+{"prompt": "What is 256 divided by 8?", "completion": "256 / 8 = 32", "answer": "32"}
+{"prompt": "What is 15% of 200?", "completion": "15% of 200 = 0.15 \u00d7 200 = 30", "answer": "30"}
+{"prompt": "What is the square root of 144?", "completion": "\u221a144 = 12", "answer": "12"}
+{"prompt": "What is 7 \u00d7 8?", "completion": "7 \u00d7 8 = 56", "answer": "56"}
+{"prompt": "What is 1000 - 337?", "completion": "1000 - 337 = 663", "answer": "663"}
+{"prompt": "What is 3 squared plus 4 squared?", "completion": "3\u00b2 + 4\u00b2 = 9 + 16 = 25", "answer": "25"}
+{"prompt": "What is 20% of 350?", "completion": "20% of 350 = 0.20 \u00d7 350 = 70", "answer": "70"}
+{"prompt": "What is 144 / 12?", "completion": "144 / 12 = 12", "answer": "12"}
+{"prompt": "What is 2 to the power of 8?", "completion": "2^8 = 256", "answer": "256"}
+{"prompt": "What is the capital of France?", "completion": "The capital of France is Paris.", "answer": "Paris"}
+{"prompt": "How many days are in a leap year?", "completion": "A leap year has 366 days.", "answer": "366"}
+{"prompt": "What is the chemical symbol for gold?", "completion": "The chemical symbol for gold is Au.", "answer": "Au"}
+{"prompt": "How many sides does a hexagon have?", "completion": "A hexagon has 6 sides.", "answer": "6"}
+{"prompt": "What is the boiling point of water in Celsius?", "completion": "Water boils at 100 degrees Celsius.", "answer": "100"}
+{"prompt": "What planet is closest to the Sun?", "completion": "Mercury is the closest planet to the Sun.", "answer": "Mercury"}
+{"prompt": "How many bytes are in a kilobyte?", "completion": "There are 1024 bytes in a kilobyte.", "answer": "1024"}
+{"prompt": "What is the speed of light in km/s?", "completion": "The speed of light is approximately 299,792 km/s.", "answer": "299792"}
+{"prompt": "What year was Python first released?", "completion": "Python was first released in 1991.", "answer": "1991"}
+{"prompt": "How many bits in a byte?", "completion": "There are 8 bits in a byte.", "answer": "8"}
+{"prompt": "What does len([1,2,3]) return in Python?", "completion": "len([1,2,3]) returns 3 because the list has 3 elements.", "answer": "3"}
+{"prompt": "What is the output of print(type(42))?", "completion": "print(type(42)) outputs <class 'int'>.", "answer": "<class 'int'>"}
+{"prompt": "What does range(5) produce?", "completion": "range(5) produces values 0, 1, 2, 3, 4.", "answer": "0,1,2,3,4"}
+{"prompt": "What is 10 % 3 in Python?", "completion": "10 % 3 = 1 (remainder of 10 divided by 3).", "answer": "1"}
+{"prompt": "What does bool(0) return?", "completion": "bool(0) returns False.", "answer": "False"}
+{"prompt": "What is the index of 'b' in ['a','b','c']?", "completion": "The index of 'b' is 1.", "answer": "1"}
+{"prompt": "What does str(123) return?", "completion": "str(123) returns the string '123'.", "answer": "123"}
+{"prompt": "What is 2**10 in Python?", "completion": "2**10 = 1024.", "answer": "1024"}
+{"prompt": "What does list(range(3)) return?", "completion": "list(range(3)) returns [0, 1, 2].", "answer": "[0, 1, 2]"}
+{"prompt": "What is the output of round(3.567, 2)?", "completion": "round(3.567, 2) returns 3.57.", "answer": "3.57"}
+{"prompt": "What is 47 + 83?", "completion": "47 + 83 = 130", "answer": "130"}
+{"prompt": "What is 256 divided by 8?", "completion": "256 / 8 = 32", "answer": "32"}
+{"prompt": "What is 15% of 200?", "completion": "15% of 200 = 0.15 \u00d7 200 = 30", "answer": "30"}
+{"prompt": "What is the square root of 144?", "completion": "\u221a144 = 12", "answer": "12"}
+{"prompt": "What is 7 \u00d7 8?", "completion": "7 \u00d7 8 = 56", "answer": "56"}
+{"prompt": "What is 1000 - 337?", "completion": "1000 - 337 = 663", "answer": "663"}
+{"prompt": "What is 3 squared plus 4 squared?", "completion": "3\u00b2 + 4\u00b2 = 9 + 16 = 25", "answer": "25"}
+{"prompt": "What is 20% of 350?", "completion": "20% of 350 = 0.20 \u00d7 350 = 70", "answer": "70"}
+{"prompt": "What is 144 / 12?", "completion": "144 / 12 = 12", "answer": "12"}
+{"prompt": "What is 2 to the power of 8?", "completion": "2^8 = 256", "answer": "256"}
+{"prompt": "What is the capital of France?", "completion": "The capital of France is Paris.", "answer": "Paris"}
+{"prompt": "How many days are in a leap year?", "completion": "A leap year has 366 days.", "answer": "366"}
+{"prompt": "What is the chemical symbol for gold?", "completion": "The chemical symbol for gold is Au.", "answer": "Au"}
+{"prompt": "How many sides does a hexagon have?", "completion": "A hexagon has 6 sides.", "answer": "6"}
+{"prompt": "What is the boiling point of water in Celsius?", "completion": "Water boils at 100 degrees Celsius.", "answer": "100"}
+{"prompt": "What planet is closest to the Sun?", "completion": "Mercury is the closest planet to the Sun.", "answer": "Mercury"}
+{"prompt": "How many bytes are in a kilobyte?", "completion": "There are 1024 bytes in a kilobyte.", "answer": "1024"}
+{"prompt": "What is the speed of light in km/s?", "completion": "The speed of light is approximately 299,792 km/s.", "answer": "299792"}
+{"prompt": "What year was Python first released?", "completion": "Python was first released in 1991.", "answer": "1991"}
+{"prompt": "How many bits in a byte?", "completion": "There are 8 bits in a byte.", "answer": "8"}
+{"prompt": "What does len([1,2,3]) return in Python?", "completion": "len([1,2,3]) returns 3 because the list has 3 elements.", "answer": "3"}
+{"prompt": "What is the output of print(type(42))?", "completion": "print(type(42)) outputs <class 'int'>.", "answer": "<class 'int'>"}
+{"prompt": "What does range(5) produce?", "completion": "range(5) produces values 0, 1, 2, 3, 4.", "answer": "0,1,2,3,4"}
+{"prompt": "What is 10 % 3 in Python?", "completion": "10 % 3 = 1 (remainder of 10 divided by 3).", "answer": "1"}
+{"prompt": "What does bool(0) return?", "completion": "bool(0) returns False.", "answer": "False"}
+{"prompt": "What is the index of 'b' in ['a','b','c']?", "completion": "The index of 'b' is 1.", "answer": "1"}
+{"prompt": "What does str(123) return?", "completion": "str(123) returns the string '123'.", "answer": "123"}
+{"prompt": "What is 2**10 in Python?", "completion": "2**10 = 1024.", "answer": "1024"}
+{"prompt": "What does list(range(3)) return?", "completion": "list(range(3)) returns [0, 1, 2].", "answer": "[0, 1, 2]"}
+{"prompt": "What is the output of round(3.567, 2)?", "completion": "round(3.567, 2) returns 3.57.", "answer": "3.57"}
+{"prompt": "What is 47 + 83?", "completion": "47 + 83 = 130", "answer": "130"}
+{"prompt": "What is 256 divided by 8?", "completion": "256 / 8 = 32", "answer": "32"}
+{"prompt": "What is 15% of 200?", "completion": "15% of 200 = 0.15 \u00d7 200 = 30", "answer": "30"}
+{"prompt": "What is the square root of 144?", "completion": "\u221a144 = 12", "answer": "12"}
+{"prompt": "What is 7 \u00d7 8?", "completion": "7 \u00d7 8 = 56", "answer": "56"}
+{"prompt": "What is 1000 - 337?", "completion": "1000 - 337 = 663", "answer": "663"}
+{"prompt": "What is 3 squared plus 4 squared?", "completion": "3\u00b2 + 4\u00b2 = 9 + 16 = 25", "answer": "25"}
+{"prompt": "What is 20% of 350?", "completion": "20% of 350 = 0.20 \u00d7 350 = 70", "answer": "70"}
+{"prompt": "What is 144 / 12?", "completion": "144 / 12 = 12", "answer": "12"}
+{"prompt": "What is 2 to the power of 8?", "completion": "2^8 = 256", "answer": "256"}
+{"prompt": "What is the capital of France?", "completion": "The capital of France is Paris.", "answer": "Paris"}
+{"prompt": "How many days are in a leap year?", "completion": "A leap year has 366 days.", "answer": "366"}
+{"prompt": "What is the chemical symbol for gold?", "completion": "The chemical symbol for gold is Au.", "answer": "Au"}
+{"prompt": "How many sides does a hexagon have?", "completion": "A hexagon has 6 sides.", "answer": "6"}
+{"prompt": "What is the boiling point of water in Celsius?", "completion": "Water boils at 100 degrees Celsius.", "answer": "100"}
+{"prompt": "What planet is closest to the Sun?", "completion": "Mercury is the closest planet to the Sun.", "answer": "Mercury"}
+{"prompt": "How many bytes are in a kilobyte?", "completion": "There are 1024 bytes in a kilobyte.", "answer": "1024"}
+{"prompt": "What is the speed of light in km/s?", "completion": "The speed of light is approximately 299,792 km/s.", "answer": "299792"}
+{"prompt": "What year was Python first released?", "completion": "Python was first released in 1991.", "answer": "1991"}
+{"prompt": "How many bits in a byte?", "completion": "There are 8 bits in a byte.", "answer": "8"}
+{"prompt": "What does len([1,2,3]) return in Python?", "completion": "len([1,2,3]) returns 3 because the list has 3 elements.", "answer": "3"}
+{"prompt": "What is the output of print(type(42))?", "completion": "print(type(42)) outputs <class 'int'>.", "answer": "<class 'int'>"}
+{"prompt": "What does range(5) produce?", "completion": "range(5) produces values 0, 1, 2, 3, 4.", "answer": "0,1,2,3,4"}
+{"prompt": "What is 10 % 3 in Python?", "completion": "10 % 3 = 1 (remainder of 10 divided by 3).", "answer": "1"}
+{"prompt": "What does bool(0) return?", "completion": "bool(0) returns False.", "answer": "False"}
+{"prompt": "What is the index of 'b' in ['a','b','c']?", "completion": "The index of 'b' is 1.", "answer": "1"}
+{"prompt": "What does str(123) return?", "completion": "str(123) returns the string '123'.", "answer": "123"}
+{"prompt": "What is 2**10 in Python?", "completion": "2**10 = 1024.", "answer": "1024"}
+{"prompt": "What does list(range(3)) return?", "completion": "list(range(3)) returns [0, 1, 2].", "answer": "[0, 1, 2]"}
+{"prompt": "What is the output of round(3.567, 2)?", "completion": "round(3.567, 2) returns 3.57.", "answer": "3.57"}
+{"prompt": "What is 47 + 83?", "completion": "47 + 83 = 130", "answer": "130"}
+{"prompt": "What is 256 divided by 8?", "completion": "256 / 8 = 32", "answer": "32"}
+{"prompt": "What is 15% of 200?", "completion": "15% of 200 = 0.15 \u00d7 200 = 30", "answer": "30"}
+{"prompt": "What is the square root of 144?", "completion": "\u221a144 = 12", "answer": "12"}
+{"prompt": "What is 7 \u00d7 8?", "completion": "7 \u00d7 8 = 56", "answer": "56"}
+{"prompt": "What is 1000 - 337?", "completion": "1000 - 337 = 663", "answer": "663"}
+{"prompt": "What is 3 squared plus 4 squared?", "completion": "3\u00b2 + 4\u00b2 = 9 + 16 = 25", "answer": "25"}
+{"prompt": "What is 20% of 350?", "completion": "20% of 350 = 0.20 \u00d7 350 = 70", "answer": "70"}
+{"prompt": "What is 144 / 12?", "completion": "144 / 12 = 12", "answer": "12"}
+{"prompt": "What is 2 to the power of 8?", "completion": "2^8 = 256", "answer": "256"}
+{"prompt": "What is the capital of France?", "completion": "The capital of France is Paris.", "answer": "Paris"}
+{"prompt": "How many days are in a leap year?", "completion": "A leap year has 366 days.", "answer": "366"}
+{"prompt": "What is the chemical symbol for gold?", "completion": "The chemical symbol for gold is Au.", "answer": "Au"}
+{"prompt": "How many sides does a hexagon have?", "completion": "A hexagon has 6 sides.", "answer": "6"}
+{"prompt": "What is the boiling point of water in Celsius?", "completion": "Water boils at 100 degrees Celsius.", "answer": "100"}
+{"prompt": "What planet is closest to the Sun?", "completion": "Mercury is the closest planet to the Sun.", "answer": "Mercury"}
+{"prompt": "How many bytes are in a kilobyte?", "completion": "There are 1024 bytes in a kilobyte.", "answer": "1024"}
+{"prompt": "What is the speed of light in km/s?", "completion": "The speed of light is approximately 299,792 km/s.", "answer": "299792"}
+{"prompt": "What year was Python first released?", "completion": "Python was first released in 1991.", "answer": "1991"}
+{"prompt": "How many bits in a byte?", "completion": "There are 8 bits in a byte.", "answer": "8"}
+{"prompt": "What does len([1,2,3]) return in Python?", "completion": "len([1,2,3]) returns 3 because the list has 3 elements.", "answer": "3"}
+{"prompt": "What is the output of print(type(42))?", "completion": "print(type(42)) outputs <class 'int'>.", "answer": "<class 'int'>"}
+{"prompt": "What does range(5) produce?", "completion": "range(5) produces values 0, 1, 2, 3, 4.", "answer": "0,1,2,3,4"}
+{"prompt": "What is 10 % 3 in Python?", "completion": "10 % 3 = 1 (remainder of 10 divided by 3).", "answer": "1"}
+{"prompt": "What does bool(0) return?", "completion": "bool(0) returns False.", "answer": "False"}
+{"prompt": "What is the index of 'b' in ['a','b','c']?", "completion": "The index of 'b' is 1.", "answer": "1"}
+{"prompt": "What does str(123) return?", "completion": "str(123) returns the string '123'.", "answer": "123"}
+{"prompt": "What is 2**10 in Python?", "completion": "2**10 = 1024.", "answer": "1024"}
+{"prompt": "What does list(range(3)) return?", "completion": "list(range(3)) returns [0, 1, 2].", "answer": "[0, 1, 2]"}
+{"prompt": "What is the output of round(3.567, 2)?", "completion": "round(3.567, 2) returns 3.57.", "answer": "3.57"}
+{"prompt": "What is 47 + 83?", "completion": "47 + 83 = 130", "answer": "130"}
+{"prompt": "What is 256 divided by 8?", "completion": "256 / 8 = 32", "answer": "32"}
+{"prompt": "What is 15% of 200?", "completion": "15% of 200 = 0.15 \u00d7 200 = 30", "answer": "30"}
+{"prompt": "What is the square root of 144?", "completion": "\u221a144 = 12", "answer": "12"}
+{"prompt": "What is 7 \u00d7 8?", "completion": "7 \u00d7 8 = 56", "answer": "56"}
+{"prompt": "What is 1000 - 337?", "completion": "1000 - 337 = 663", "answer": "663"}
+{"prompt": "What is 3 squared plus 4 squared?", "completion": "3\u00b2 + 4\u00b2 = 9 + 16 = 25", "answer": "25"}
+{"prompt": "What is 20% of 350?", "completion": "20% of 350 = 0.20 \u00d7 350 = 70", "answer": "70"}
+{"prompt": "What is 144 / 12?", "completion": "144 / 12 = 12", "answer": "12"}
+{"prompt": "What is 2 to the power of 8?", "completion": "2^8 = 256", "answer": "256"}
+{"prompt": "What is the capital of France?", "completion": "The capital of France is Paris.", "answer": "Paris"}
+{"prompt": "How many days are in a leap year?", "completion": "A leap year has 366 days.", "answer": "366"}
+{"prompt": "What is the chemical symbol for gold?", "completion": "The chemical symbol for gold is Au.", "answer": "Au"}
+{"prompt": "How many sides does a hexagon have?", "completion": "A hexagon has 6 sides.", "answer": "6"}
+{"prompt": "What is the boiling point of water in Celsius?", "completion": "Water boils at 100 degrees Celsius.", "answer": "100"}
+{"prompt": "What planet is closest to the Sun?", "completion": "Mercury is the closest planet to the Sun.", "answer": "Mercury"}
+{"prompt": "How many bytes are in a kilobyte?", "completion": "There are 1024 bytes in a kilobyte.", "answer": "1024"}
+{"prompt": "What is the speed of light in km/s?", "completion": "The speed of light is approximately 299,792 km/s.", "answer": "299792"}
+{"prompt": "What year was Python first released?", "completion": "Python was first released in 1991.", "answer": "1991"}
+{"prompt": "How many bits in a byte?", "completion": "There are 8 bits in a byte.", "answer": "8"}
+{"prompt": "What does len([1,2,3]) return in Python?", "completion": "len([1,2,3]) returns 3 because the list has 3 elements.", "answer": "3"}
+{"prompt": "What is the output of print(type(42))?", "completion": "print(type(42)) outputs <class 'int'>.", "answer": "<class 'int'>"}
+{"prompt": "What does range(5) produce?", "completion": "range(5) produces values 0, 1, 2, 3, 4.", "answer": "0,1,2,3,4"}
+{"prompt": "What is 10 % 3 in Python?", "completion": "10 % 3 = 1 (remainder of 10 divided by 3).", "answer": "1"}
+{"prompt": "What does bool(0) return?", "completion": "bool(0) returns False.", "answer": "False"}
+{"prompt": "What is the index of 'b' in ['a','b','c']?", "completion": "The index of 'b' is 1.", "answer": "1"}
+{"prompt": "What does str(123) return?", "completion": "str(123) returns the string '123'.", "answer": "123"}
+{"prompt": "What is 2**10 in Python?", "completion": "2**10 = 1024.", "answer": "1024"}
+{"prompt": "What does list(range(3)) return?", "completion": "list(range(3)) returns [0, 1, 2].", "answer": "[0, 1, 2]"}
+{"prompt": "What is the output of round(3.567, 2)?", "completion": "round(3.567, 2) returns 3.57.", "answer": "3.57"}
+{"prompt": "What is 47 + 83?", "completion": "47 + 83 = 130", "answer": "130"}
+{"prompt": "What is 256 divided by 8?", "completion": "256 / 8 = 32", "answer": "32"}
+{"prompt": "What is 15% of 200?", "completion": "15% of 200 = 0.15 \u00d7 200 = 30", "answer": "30"}
+{"prompt": "What is the square root of 144?", "completion": "\u221a144 = 12", "answer": "12"}
+{"prompt": "What is 7 \u00d7 8?", "completion": "7 \u00d7 8 = 56", "answer": "56"}
+{"prompt": "What is 1000 - 337?", "completion": "1000 - 337 = 663", "answer": "663"}
+{"prompt": "What is 3 squared plus 4 squared?", "completion": "3\u00b2 + 4\u00b2 = 9 + 16 = 25", "answer": "25"}
+{"prompt": "What is 20% of 350?", "completion": "20% of 350 = 0.20 \u00d7 350 = 70", "answer": "70"}
+{"prompt": "What is 144 / 12?", "completion": "144 / 12 = 12", "answer": "12"}
+{"prompt": "What is 2 to the power of 8?", "completion": "2^8 = 256", "answer": "256"}
+{"prompt": "What is the capital of France?", "completion": "The capital of France is Paris.", "answer": "Paris"}
+{"prompt": "How many days are in a leap year?", "completion": "A leap year has 366 days.", "answer": "366"}
+{"prompt": "What is the chemical symbol for gold?", "completion": "The chemical symbol for gold is Au.", "answer": "Au"}
+{"prompt": "How many sides does a hexagon have?", "completion": "A hexagon has 6 sides.", "answer": "6"}
+{"prompt": "What is the boiling point of water in Celsius?", "completion": "Water boils at 100 degrees Celsius.", "answer": "100"}
+{"prompt": "What planet is closest to the Sun?", "completion": "Mercury is the closest planet to the Sun.", "answer": "Mercury"}
+{"prompt": "How many bytes are in a kilobyte?", "completion": "There are 1024 bytes in a kilobyte.", "answer": "1024"}
+{"prompt": "What is the speed of light in km/s?", "completion": "The speed of light is approximately 299,792 km/s.", "answer": "299792"}
+{"prompt": "What year was Python first released?", "completion": "Python was first released in 1991.", "answer": "1991"}
+{"prompt": "How many bits in a byte?", "completion": "There are 8 bits in a byte.", "answer": "8"}
+{"prompt": "What does len([1,2,3]) return in Python?", "completion": "len([1,2,3]) returns 3 because the list has 3 elements.", "answer": "3"}
+{"prompt": "What is the output of print(type(42))?", "completion": "print(type(42)) outputs <class 'int'>.", "answer": "<class 'int'>"}
+{"prompt": "What does range(5) produce?", "completion": "range(5) produces values 0, 1, 2, 3, 4.", "answer": "0,1,2,3,4"}
+{"prompt": "What is 10 % 3 in Python?", "completion": "10 % 3 = 1 (remainder of 10 divided by 3).", "answer": "1"}
+{"prompt": "What does bool(0) return?", "completion": "bool(0) returns False.", "answer": "False"}
+{"prompt": "What is the index of 'b' in ['a','b','c']?", "completion": "The index of 'b' is 1.", "answer": "1"}
+{"prompt": "What does str(123) return?", "completion": "str(123) returns the string '123'.", "answer": "123"}
+{"prompt": "What is 2**10 in Python?", "completion": "2**10 = 1024.", "answer": "1024"}
+{"prompt": "What does list(range(3)) return?", "completion": "list(range(3)) returns [0, 1, 2].", "answer": "[0, 1, 2]"}
+{"prompt": "What is the output of round(3.567, 2)?", "completion": "round(3.567, 2) returns 3.57.", "answer": "3.57"}
+{"prompt": "What is 47 + 83?", "completion": "47 + 83 = 130", "answer": "130"}
+{"prompt": "What is 256 divided by 8?", "completion": "256 / 8 = 32", "answer": "32"}
+{"prompt": "What is 15% of 200?", "completion": "15% of 200 = 0.15 \u00d7 200 = 30", "answer": "30"}
+{"prompt": "What is the square root of 144?", "completion": "\u221a144 = 12", "answer": "12"}
+{"prompt": "What is 7 \u00d7 8?", "completion": "7 \u00d7 8 = 56", "answer": "56"}
+{"prompt": "What is 1000 - 337?", "completion": "1000 - 337 = 663", "answer": "663"}
+{"prompt": "What is 3 squared plus 4 squared?", "completion": "3\u00b2 + 4\u00b2 = 9 + 16 = 25", "answer": "25"}
+{"prompt": "What is 20% of 350?", "completion": "20% of 350 = 0.20 \u00d7 350 = 70", "answer": "70"}
+{"prompt": "What is 144 / 12?", "completion": "144 / 12 = 12", "answer": "12"}
+{"prompt": "What is 2 to the power of 8?", "completion": "2^8 = 256", "answer": "256"}
+{"prompt": "What is the capital of France?", "completion": "The capital of France is Paris.", "answer": "Paris"}
+{"prompt": "How many days are in a leap year?", "completion": "A leap year has 366 days.", "answer": "366"}
+{"prompt": "What is the chemical symbol for gold?", "completion": "The chemical symbol for gold is Au.", "answer": "Au"}
+{"prompt": "How many sides does a hexagon have?", "completion": "A hexagon has 6 sides.", "answer": "6"}
+{"prompt": "What is the boiling point of water in Celsius?", "completion": "Water boils at 100 degrees Celsius.", "answer": "100"}
+{"prompt": "What planet is closest to the Sun?", "completion": "Mercury is the closest planet to the Sun.", "answer": "Mercury"}
+{"prompt": "How many bytes are in a kilobyte?", "completion": "There are 1024 bytes in a kilobyte.", "answer": "1024"}
+{"prompt": "What is the speed of light in km/s?", "completion": "The speed of light is approximately 299,792 km/s.", "answer": "299792"}
+{"prompt": "What year was Python first released?", "completion": "Python was first released in 1991.", "answer": "1991"}
+{"prompt": "How many bits in a byte?", "completion": "There are 8 bits in a byte.", "answer": "8"}
+{"prompt": "What does len([1,2,3]) return in Python?", "completion": "len([1,2,3]) returns 3 because the list has 3 elements.", "answer": "3"}
+{"prompt": "What is the output of print(type(42))?", "completion": "print(type(42)) outputs <class 'int'>.", "answer": "<class 'int'>"}
+{"prompt": "What does range(5) produce?", "completion": "range(5) produces values 0, 1, 2, 3, 4.", "answer": "0,1,2,3,4"}
+{"prompt": "What is 10 % 3 in Python?", "completion": "10 % 3 = 1 (remainder of 10 divided by 3).", "answer": "1"}
+{"prompt": "What does bool(0) return?", "completion": "bool(0) returns False.", "answer": "False"}
+{"prompt": "What is the index of 'b' in ['a','b','c']?", "completion": "The index of 'b' is 1.", "answer": "1"}
+{"prompt": "What does str(123) return?", "completion": "str(123) returns the string '123'.", "answer": "123"}
+{"prompt": "What is 2**10 in Python?", "completion": "2**10 = 1024.", "answer": "1024"}
+{"prompt": "What does list(range(3)) return?", "completion": "list(range(3)) returns [0, 1, 2].", "answer": "[0, 1, 2]"}
+{"prompt": "What is the output of round(3.567, 2)?", "completion": "round(3.567, 2) returns 3.57.", "answer": "3.57"}
+{"prompt": "What is 47 + 83?", "completion": "47 + 83 = 130", "answer": "130"}
+{"prompt": "What is 256 divided by 8?", "completion": "256 / 8 = 32", "answer": "32"}
+{"prompt": "What is 15% of 200?", "completion": "15% of 200 = 0.15 \u00d7 200 = 30", "answer": "30"}
+{"prompt": "What is the square root of 144?", "completion": "\u221a144 = 12", "answer": "12"}
+{"prompt": "What is 7 \u00d7 8?", "completion": "7 \u00d7 8 = 56", "answer": "56"}
+{"prompt": "What is 1000 - 337?", "completion": "1000 - 337 = 663", "answer": "663"}
+{"prompt": "What is 3 squared plus 4 squared?", "completion": "3\u00b2 + 4\u00b2 = 9 + 16 = 25", "answer": "25"}
+{"prompt": "What is 20% of 350?", "completion": "20% of 350 = 0.20 \u00d7 350 = 70", "answer": "70"}
+{"prompt": "What is 144 / 12?", "completion": "144 / 12 = 12", "answer": "12"}
+{"prompt": "What is 2 to the power of 8?", "completion": "2^8 = 256", "answer": "256"}
+{"prompt": "What is the capital of France?", "completion": "The capital of France is Paris.", "answer": "Paris"}
+{"prompt": "How many days are in a leap year?", "completion": "A leap year has 366 days.", "answer": "366"}
+{"prompt": "What is the chemical symbol for gold?", "completion": "The chemical symbol for gold is Au.", "answer": "Au"}
+{"prompt": "How many sides does a hexagon have?", "completion": "A hexagon has 6 sides.", "answer": "6"}
+{"prompt": "What is the boiling point of water in Celsius?", "completion": "Water boils at 100 degrees Celsius.", "answer": "100"}
+{"prompt": "What planet is closest to the Sun?", "completion": "Mercury is the closest planet to the Sun.", "answer": "Mercury"}
+{"prompt": "How many bytes are in a kilobyte?", "completion": "There are 1024 bytes in a kilobyte.", "answer": "1024"}
+{"prompt": "What is the speed of light in km/s?", "completion": "The speed of light is approximately 299,792 km/s.", "answer": "299792"}
+{"prompt": "What year was Python first released?", "completion": "Python was first released in 1991.", "answer": "1991"}
+{"prompt": "How many bits in a byte?", "completion": "There are 8 bits in a byte.", "answer": "8"}
+{"prompt": "What does len([1,2,3]) return in Python?", "completion": "len([1,2,3]) returns 3 because the list has 3 elements.", "answer": "3"}
+{"prompt": "What is the output of print(type(42))?", "completion": "print(type(42)) outputs <class 'int'>.", "answer": "<class 'int'>"}
+{"prompt": "What does range(5) produce?", "completion": "range(5) produces values 0, 1, 2, 3, 4.", "answer": "0,1,2,3,4"}
+{"prompt": "What is 10 % 3 in Python?", "completion": "10 % 3 = 1 (remainder of 10 divided by 3).", "answer": "1"}
+{"prompt": "What does bool(0) return?", "completion": "bool(0) returns False.", "answer": "False"}
+{"prompt": "What is the index of 'b' in ['a','b','c']?", "completion": "The index of 'b' is 1.", "answer": "1"}
+{"prompt": "What does str(123) return?", "completion": "str(123) returns the string '123'.", "answer": "123"}
+{"prompt": "What is 2**10 in Python?", "completion": "2**10 = 1024.", "answer": "1024"}
+{"prompt": "What does list(range(3)) return?", "completion": "list(range(3)) returns [0, 1, 2].", "answer": "[0, 1, 2]"}
+{"prompt": "What is the output of round(3.567, 2)?", "completion": "round(3.567, 2) returns 3.57.", "answer": "3.57"}
+{"prompt": "What is 47 + 83?", "completion": "47 + 83 = 130", "answer": "130"}
+{"prompt": "What is 256 divided by 8?", "completion": "256 / 8 = 32", "answer": "32"}
+{"prompt": "What is 15% of 200?", "completion": "15% of 200 = 0.15 \u00d7 200 = 30", "answer": "30"}
+{"prompt": "What is the square root of 144?", "completion": "\u221a144 = 12", "answer": "12"}
+{"prompt": "What is 7 \u00d7 8?", "completion": "7 \u00d7 8 = 56", "answer": "56"}
+{"prompt": "What is 1000 - 337?", "completion": "1000 - 337 = 663", "answer": "663"}
+{"prompt": "What is 3 squared plus 4 squared?", "completion": "3\u00b2 + 4\u00b2 = 9 + 16 = 25", "answer": "25"}
+{"prompt": "What is 20% of 350?", "completion": "20% of 350 = 0.20 \u00d7 350 = 70", "answer": "70"}
+{"prompt": "What is 144 / 12?", "completion": "144 / 12 = 12", "answer": "12"}
+{"prompt": "What is 2 to the power of 8?", "completion": "2^8 = 256", "answer": "256"}
+{"prompt": "What is the capital of France?", "completion": "The capital of France is Paris.", "answer": "Paris"}
+{"prompt": "How many days are in a leap year?", "completion": "A leap year has 366 days.", "answer": "366"}
+{"prompt": "What is the chemical symbol for gold?", "completion": "The chemical symbol for gold is Au.", "answer": "Au"}
+{"prompt": "How many sides does a hexagon have?", "completion": "A hexagon has 6 sides.", "answer": "6"}
+{"prompt": "What is the boiling point of water in Celsius?", "completion": "Water boils at 100 degrees Celsius.", "answer": "100"}
+{"prompt": "What planet is closest to the Sun?", "completion": "Mercury is the closest planet to the Sun.", "answer": "Mercury"}
+{"prompt": "How many bytes are in a kilobyte?", "completion": "There are 1024 bytes in a kilobyte.", "answer": "1024"}
+{"prompt": "What is the speed of light in km/s?", "completion": "The speed of light is approximately 299,792 km/s.", "answer": "299792"}
+{"prompt": "What year was Python first released?", "completion": "Python was first released in 1991.", "answer": "1991"}
+{"prompt": "How many bits in a byte?", "completion": "There are 8 bits in a byte.", "answer": "8"}
+{"prompt": "What does len([1,2,3]) return in Python?", "completion": "len([1,2,3]) returns 3 because the list has 3 elements.", "answer": "3"}
+{"prompt": "What is the output of print(type(42))?", "completion": "print(type(42)) outputs <class 'int'>.", "answer": "<class 'int'>"}
+{"prompt": "What does range(5) produce?", "completion": "range(5) produces values 0, 1, 2, 3, 4.", "answer": "0,1,2,3,4"}
+{"prompt": "What is 10 % 3 in Python?", "completion": "10 % 3 = 1 (remainder of 10 divided by 3).", "answer": "1"}
+{"prompt": "What does bool(0) return?", "completion": "bool(0) returns False.", "answer": "False"}
+{"prompt": "What is the index of 'b' in ['a','b','c']?", "completion": "The index of 'b' is 1.", "answer": "1"}
+{"prompt": "What does str(123) return?", "completion": "str(123) returns the string '123'.", "answer": "123"}
+{"prompt": "What is 2**10 in Python?", "completion": "2**10 = 1024.", "answer": "1024"}
+{"prompt": "What does list(range(3)) return?", "completion": "list(range(3)) returns [0, 1, 2].", "answer": "[0, 1, 2]"}
+{"prompt": "What is the output of round(3.567, 2)?", "completion": "round(3.567, 2) returns 3.57.", "answer": "3.57"}
+{"prompt": "What is 47 + 83?", "completion": "47 + 83 = 130", "answer": "130"}
+{"prompt": "What is 256 divided by 8?", "completion": "256 / 8 = 32", "answer": "32"}
+{"prompt": "What is 15% of 200?", "completion": "15% of 200 = 0.15 \u00d7 200 = 30", "answer": "30"}
+{"prompt": "What is the square root of 144?", "completion": "\u221a144 = 12", "answer": "12"}
+{"prompt": "What is 7 \u00d7 8?", "completion": "7 \u00d7 8 = 56", "answer": "56"}
+{"prompt": "What is 1000 - 337?", "completion": "1000 - 337 = 663", "answer": "663"}
+{"prompt": "What is 3 squared plus 4 squared?", "completion": "3\u00b2 + 4\u00b2 = 9 + 16 = 25", "answer": "25"}
+{"prompt": "What is 20% of 350?", "completion": "20% of 350 = 0.20 \u00d7 350 = 70", "answer": "70"}
+{"prompt": "What is 144 / 12?", "completion": "144 / 12 = 12", "answer": "12"}
+{"prompt": "What is 2 to the power of 8?", "completion": "2^8 = 256", "answer": "256"}
+{"prompt": "What is the capital of France?", "completion": "The capital of France is Paris.", "answer": "Paris"}
+{"prompt": "How many days are in a leap year?", "completion": "A leap year has 366 days.", "answer": "366"}
+{"prompt": "What is the chemical symbol for gold?", "completion": "The chemical symbol for gold is Au.", "answer": "Au"}
+{"prompt": "How many sides does a hexagon have?", "completion": "A hexagon has 6 sides.", "answer": "6"}
+{"prompt": "What is the boiling point of water in Celsius?", "completion": "Water boils at 100 degrees Celsius.", "answer": "100"}
+{"prompt": "What planet is closest to the Sun?", "completion": "Mercury is the closest planet to the Sun.", "answer": "Mercury"}
+{"prompt": "How many bytes are in a kilobyte?", "completion": "There are 1024 bytes in a kilobyte.", "answer": "1024"}
+{"prompt": "What is the speed of light in km/s?", "completion": "The speed of light is approximately 299,792 km/s.", "answer": "299792"}
+{"prompt": "What year was Python first released?", "completion": "Python was first released in 1991.", "answer": "1991"}
+{"prompt": "How many bits in a byte?", "completion": "There are 8 bits in a byte.", "answer": "8"}
+{"prompt": "What does len([1,2,3]) return in Python?", "completion": "len([1,2,3]) returns 3 because the list has 3 elements.", "answer": "3"}
+{"prompt": "What is the output of print(type(42))?", "completion": "print(type(42)) outputs <class 'int'>.", "answer": "<class 'int'>"}
+{"prompt": "What does range(5) produce?", "completion": "range(5) produces values 0, 1, 2, 3, 4.", "answer": "0,1,2,3,4"}
+{"prompt": "What is 10 % 3 in Python?", "completion": "10 % 3 = 1 (remainder of 10 divided by 3).", "answer": "1"}
+{"prompt": "What does bool(0) return?", "completion": "bool(0) returns False.", "answer": "False"}
+{"prompt": "What is the index of 'b' in ['a','b','c']?", "completion": "The index of 'b' is 1.", "answer": "1"}
+{"prompt": "What does str(123) return?", "completion": "str(123) returns the string '123'.", "answer": "123"}
+{"prompt": "What is 2**10 in Python?", "completion": "2**10 = 1024.", "answer": "1024"}
+{"prompt": "What does list(range(3)) return?", "completion": "list(range(3)) returns [0, 1, 2].", "answer": "[0, 1, 2]"}
+{"prompt": "What is the output of round(3.567, 2)?", "completion": "round(3.567, 2) returns 3.57.", "answer": "3.57"}
+{"prompt": "What is 47 + 83?", "completion": "47 + 83 = 130", "answer": "130"}
+{"prompt": "What is 256 divided by 8?", "completion": "256 / 8 = 32", "answer": "32"}
+{"prompt": "What is 15% of 200?", "completion": "15% of 200 = 0.15 \u00d7 200 = 30", "answer": "30"}
+{"prompt": "What is the square root of 144?", "completion": "\u221a144 = 12", "answer": "12"}
+{"prompt": "What is 7 \u00d7 8?", "completion": "7 \u00d7 8 = 56", "answer": "56"}
+{"prompt": "What is 1000 - 337?", "completion": "1000 - 337 = 663", "answer": "663"}
+{"prompt": "What is 3 squared plus 4 squared?", "completion": "3\u00b2 + 4\u00b2 = 9 + 16 = 25", "answer": "25"}
+{"prompt": "What is 20% of 350?", "completion": "20% of 350 = 0.20 \u00d7 350 = 70", "answer": "70"}
+{"prompt": "What is 144 / 12?", "completion": "144 / 12 = 12", "answer": "12"}
+{"prompt": "What is 2 to the power of 8?", "completion": "2^8 = 256", "answer": "256"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 47 + 83?", "completion": "47 + 83 = 130", "answer": "130"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 256 divided by 8?", "completion": "256 / 8 = 32", "answer": "32"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 15% of 200?", "completion": "15% of 200 = 0.15 \u00d7 200 = 30", "answer": "30"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is the square root of 144?", "completion": "\u221a144 = 12", "answer": "12"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 7 \u00d7 8?", "completion": "7 \u00d7 8 = 56", "answer": "56"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 1000 - 337?", "completion": "1000 - 337 = 663", "answer": "663"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 3 squared plus 4 squared?", "completion": "3\u00b2 + 4\u00b2 = 9 + 16 = 25", "answer": "25"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 20% of 350?", "completion": "20% of 350 = 0.20 \u00d7 350 = 70", "answer": "70"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 144 / 12?", "completion": "144 / 12 = 12", "answer": "12"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 2 to the power of 8?", "completion": "2^8 = 256", "answer": "256"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is the capital of France?", "completion": "The capital of France is Paris.", "answer": "Paris"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. How many days are in a leap year?", "completion": "A leap year has 366 days.", "answer": "366"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is the chemical symbol for gold?", "completion": "The chemical symbol for gold is Au.", "answer": "Au"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. How many sides does a hexagon have?", "completion": "A hexagon has 6 sides.", "answer": "6"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is the boiling point of water in Celsius?", "completion": "Water boils at 100 degrees Celsius.", "answer": "100"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What planet is closest to the Sun?", "completion": "Mercury is the closest planet to the Sun.", "answer": "Mercury"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. How many bytes are in a kilobyte?", "completion": "There are 1024 bytes in a kilobyte.", "answer": "1024"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is the speed of light in km/s?", "completion": "The speed of light is approximately 299,792 km/s.", "answer": "299792"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What year was Python first released?", "completion": "Python was first released in 1991.", "answer": "1991"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. How many bits in a byte?", "completion": "There are 8 bits in a byte.", "answer": "8"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What does len([1,2,3]) return in Python?", "completion": "len([1,2,3]) returns 3 because the list has 3 elements.", "answer": "3"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is the output of print(type(42))?", "completion": "print(type(42)) outputs <class 'int'>.", "answer": "<class 'int'>"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What does range(5) produce?", "completion": "range(5) produces values 0, 1, 2, 3, 4.", "answer": "0,1,2,3,4"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 10 % 3 in Python?", "completion": "10 % 3 = 1 (remainder of 10 divided by 3).", "answer": "1"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What does bool(0) return?", "completion": "bool(0) returns False.", "answer": "False"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is the index of 'b' in ['a','b','c']?", "completion": "The index of 'b' is 1.", "answer": "1"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What does str(123) return?", "completion": "str(123) returns the string '123'.", "answer": "123"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 2**10 in Python?", "completion": "2**10 = 1024.", "answer": "1024"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What does list(range(3)) return?", "completion": "list(range(3)) returns [0, 1, 2].", "answer": "[0, 1, 2]"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is the output of round(3.567, 2)?", "completion": "round(3.567, 2) returns 3.57.", "answer": "3.57"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 47 + 83?", "completion": "47 + 83 = 130", "answer": "130"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 256 divided by 8?", "completion": "256 / 8 = 32", "answer": "32"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 15% of 200?", "completion": "15% of 200 = 0.15 \u00d7 200 = 30", "answer": "30"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is the square root of 144?", "completion": "\u221a144 = 12", "answer": "12"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 7 \u00d7 8?", "completion": "7 \u00d7 8 = 56", "answer": "56"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 1000 - 337?", "completion": "1000 - 337 = 663", "answer": "663"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 3 squared plus 4 squared?", "completion": "3\u00b2 + 4\u00b2 = 9 + 16 = 25", "answer": "25"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 20% of 350?", "completion": "20% of 350 = 0.20 \u00d7 350 = 70", "answer": "70"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 144 / 12?", "completion": "144 / 12 = 12", "answer": "12"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 2 to the power of 8?", "completion": "2^8 = 256", "answer": "256"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is the capital of France?", "completion": "The capital of France is Paris.", "answer": "Paris"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. How many days are in a leap year?", "completion": "A leap year has 366 days.", "answer": "366"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is the chemical symbol for gold?", "completion": "The chemical symbol for gold is Au.", "answer": "Au"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. How many sides does a hexagon have?", "completion": "A hexagon has 6 sides.", "answer": "6"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is the boiling point of water in Celsius?", "completion": "Water boils at 100 degrees Celsius.", "answer": "100"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What planet is closest to the Sun?", "completion": "Mercury is the closest planet to the Sun.", "answer": "Mercury"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. How many bytes are in a kilobyte?", "completion": "There are 1024 bytes in a kilobyte.", "answer": "1024"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is the speed of light in km/s?", "completion": "The speed of light is approximately 299,792 km/s.", "answer": "299792"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What year was Python first released?", "completion": "Python was first released in 1991.", "answer": "1991"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. How many bits in a byte?", "completion": "There are 8 bits in a byte.", "answer": "8"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What does len([1,2,3]) return in Python?", "completion": "len([1,2,3]) returns 3 because the list has 3 elements.", "answer": "3"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is the output of print(type(42))?", "completion": "print(type(42)) outputs <class 'int'>.", "answer": "<class 'int'>"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What does range(5) produce?", "completion": "range(5) produces values 0, 1, 2, 3, 4.", "answer": "0,1,2,3,4"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 10 % 3 in Python?", "completion": "10 % 3 = 1 (remainder of 10 divided by 3).", "answer": "1"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What does bool(0) return?", "completion": "bool(0) returns False.", "answer": "False"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is the index of 'b' in ['a','b','c']?", "completion": "The index of 'b' is 1.", "answer": "1"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What does str(123) return?", "completion": "str(123) returns the string '123'.", "answer": "123"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 2**10 in Python?", "completion": "2**10 = 1024.", "answer": "1024"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What does list(range(3)) return?", "completion": "list(range(3)) returns [0, 1, 2].", "answer": "[0, 1, 2]"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is the output of round(3.567, 2)?", "completion": "round(3.567, 2) returns 3.57.", "answer": "3.57"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 47 + 83?", "completion": "47 + 83 = 130", "answer": "130"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 256 divided by 8?", "completion": "256 / 8 = 32", "answer": "32"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 15% of 200?", "completion": "15% of 200 = 0.15 \u00d7 200 = 30", "answer": "30"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is the square root of 144?", "completion": "\u221a144 = 12", "answer": "12"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 7 \u00d7 8?", "completion": "7 \u00d7 8 = 56", "answer": "56"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 1000 - 337?", "completion": "1000 - 337 = 663", "answer": "663"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 3 squared plus 4 squared?", "completion": "3\u00b2 + 4\u00b2 = 9 + 16 = 25", "answer": "25"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 20% of 350?", "completion": "20% of 350 = 0.20 \u00d7 350 = 70", "answer": "70"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 144 / 12?", "completion": "144 / 12 = 12", "answer": "12"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 2 to the power of 8?", "completion": "2^8 = 256", "answer": "256"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is the capital of France?", "completion": "The capital of France is Paris.", "answer": "Paris"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. How many days are in a leap year?", "completion": "A leap year has 366 days.", "answer": "366"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is the chemical symbol for gold?", "completion": "The chemical symbol for gold is Au.", "answer": "Au"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. How many sides does a hexagon have?", "completion": "A hexagon has 6 sides.", "answer": "6"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is the boiling point of water in Celsius?", "completion": "Water boils at 100 degrees Celsius.", "answer": "100"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What planet is closest to the Sun?", "completion": "Mercury is the closest planet to the Sun.", "answer": "Mercury"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. How many bytes are in a kilobyte?", "completion": "There are 1024 bytes in a kilobyte.", "answer": "1024"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is the speed of light in km/s?", "completion": "The speed of light is approximately 299,792 km/s.", "answer": "299792"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What year was Python first released?", "completion": "Python was first released in 1991.", "answer": "1991"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. How many bits in a byte?", "completion": "There are 8 bits in a byte.", "answer": "8"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What does len([1,2,3]) return in Python?", "completion": "len([1,2,3]) returns 3 because the list has 3 elements.", "answer": "3"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is the output of print(type(42))?", "completion": "print(type(42)) outputs <class 'int'>.", "answer": "<class 'int'>"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What does range(5) produce?", "completion": "range(5) produces values 0, 1, 2, 3, 4.", "answer": "0,1,2,3,4"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 10 % 3 in Python?", "completion": "10 % 3 = 1 (remainder of 10 divided by 3).", "answer": "1"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What does bool(0) return?", "completion": "bool(0) returns False.", "answer": "False"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is the index of 'b' in ['a','b','c']?", "completion": "The index of 'b' is 1.", "answer": "1"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What does str(123) return?", "completion": "str(123) returns the string '123'.", "answer": "123"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 2**10 in Python?", "completion": "2**10 = 1024.", "answer": "1024"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What does list(range(3)) return?", "completion": "list(range(3)) returns [0, 1, 2].", "answer": "[0, 1, 2]"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is the output of round(3.567, 2)?", "completion": "round(3.567, 2) returns 3.57.", "answer": "3.57"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 47 + 83?", "completion": "47 + 83 = 130", "answer": "130"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 256 divided by 8?", "completion": "256 / 8 = 32", "answer": "32"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 15% of 200?", "completion": "15% of 200 = 0.15 \u00d7 200 = 30", "answer": "30"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is the square root of 144?", "completion": "\u221a144 = 12", "answer": "12"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 7 \u00d7 8?", "completion": "7 \u00d7 8 = 56", "answer": "56"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 1000 - 337?", "completion": "1000 - 337 = 663", "answer": "663"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 3 squared plus 4 squared?", "completion": "3\u00b2 + 4\u00b2 = 9 + 16 = 25", "answer": "25"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 20% of 350?", "completion": "20% of 350 = 0.20 \u00d7 350 = 70", "answer": "70"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 144 / 12?", "completion": "144 / 12 = 12", "answer": "12"}
+{"prompt": "In the context of machine learning model training and fine-tuning workflows, particularly when working with large foundation models on cloud infrastructure platforms like Amazon SageMaker, there are numerous considerations that practitioners must account for when preparing training datasets, including but not limited to data quality, format compatibility, and length constraints. What is 2 to the power of 8?", "completion": "2^8 = 256", "answer": "256"}
+{"prompt": "What is 47 + 83?", "completion": "47 + 83 = 130", "answer": null}
+{"prompt": "What is 256 divided by 8?", "completion": "256 / 8 = 32", "answer": null}
+{"prompt": "What is 15% of 200?", "completion": "15% of 200 = 0.15 \u00d7 200 = 30", "answer": null}
+{"prompt": "What is the square root of 144?", "completion": "\u221a144 = 12", "answer": null}
+{"prompt": "What is 7 \u00d7 8?", "completion": "7 \u00d7 8 = 56", "answer": null}
+{"prompt": "What is 1000 - 337?", "completion": "1000 - 337 = 663", "answer": null}
+{"prompt": "What is 3 squared plus 4 squared?", "completion": "3\u00b2 + 4\u00b2 = 9 + 16 = 25", "answer": null}
+{"prompt": "What is 20% of 350?", "completion": "20% of 350 = 0.20 \u00d7 350 = 70", "answer": null}
+{"prompt": "What is 144 / 12?", "completion": "144 / 12 = 12", "answer": null}
+{"prompt": "What is 2 to the power of 8?", "completion": "2^8 = 256", "answer": null}
+{"prompt": "What is the capital of France?", "completion": "The capital of France is Paris.", "answer": null}
+{"prompt": "How many days are in a leap year?", "completion": "A leap year has 366 days.", "answer": null}
+{"prompt": "What is the chemical symbol for gold?", "completion": "The chemical symbol for gold is Au.", "answer": null}
+{"prompt": "How many sides does a hexagon have?", "completion": "A hexagon has 6 sides.", "answer": null}
+{"prompt": "What is the boiling point of water in Celsius?", "completion": "Water boils at 100 degrees Celsius.", "answer": null}
+{"prompt": "What planet is closest to the Sun?", "completion": "Mercury is the closest planet to the Sun.", "answer": null}
+{"prompt": "How many bytes are in a kilobyte?", "completion": "There are 1024 bytes in a kilobyte.", "answer": null}
+{"prompt": "What is the speed of light in km/s?", "completion": "The speed of light is approximately 299,792 km/s.", "answer": null}
+{"prompt": "What year was Python first released?", "completion": "Python was first released in 1991.", "answer": null}
+{"prompt": "How many bits in a byte?", "completion": "There are 8 bits in a byte.", "answer": null}
+{"prompt": "What does len([1,2,3]) return in Python?", "completion": "len([1,2,3]) returns 3 because the list has 3 elements.", "answer": null}
+{"prompt": "What is the output of print(type(42))?", "completion": "print(type(42)) outputs <class 'int'>.", "answer": null}
+{"prompt": "What does range(5) produce?", "completion": "range(5) produces values 0, 1, 2, 3, 4.", "answer": null}
+{"prompt": "What is 10 % 3 in Python?", "completion": "10 % 3 = 1 (remainder of 10 divided by 3).", "answer": null}
+{"prompt": "What does bool(0) return?", "completion": "bool(0) returns False.", "answer": null}
+{"prompt": "What is the index of 'b' in ['a','b','c']?", "completion": "The index of 'b' is 1.", "answer": null}
+{"prompt": "What does str(123) return?", "completion": "str(123) returns the string '123'.", "answer": null}
+{"prompt": "What is 2**10 in Python?", "completion": "2**10 = 1024.", "answer": null}
+{"prompt": "What does list(range(3)) return?", "completion": "list(range(3)) returns [0, 1, 2].", "answer": null}
+{"prompt": "What is the output of round(3.567, 2)?", "completion": "round(3.567, 2) returns 3.57.", "answer": null}
+{"prompt": "What is 47 + 83?", "completion": "47 + 83 = 130", "answer": null}
+{"prompt": "What is 256 divided by 8?", "completion": "256 / 8 = 32", "answer": null}
+{"prompt": "What is 15% of 200?", "completion": "15% of 200 = 0.15 \u00d7 200 = 30", "answer": null}
+{"prompt": "What is the square root of 144?", "completion": "\u221a144 = 12", "answer": null}
+{"prompt": "What is 7 \u00d7 8?", "completion": "7 \u00d7 8 = 56", "answer": null}
+{"prompt": "What is 1000 - 337?", "completion": "1000 - 337 = 663", "answer": null}
+{"prompt": "What is 3 squared plus 4 squared?", "completion": "3\u00b2 + 4\u00b2 = 9 + 16 = 25", "answer": null}
+{"prompt": "What is 20% of 350?", "completion": "20% of 350 = 0.20 \u00d7 350 = 70", "answer": null}
+{"prompt": "What is 144 / 12?", "completion": "144 / 12 = 12", "answer": null}
+{"prompt": "What is 2 to the power of 8?", "completion": "2^8 = 256", "answer": null}
+{"prompt": "What is the capital of France?", "completion": "The capital of France is Paris.", "answer": null}
+{"prompt": "How many days are in a leap year?", "completion": "A leap year has 366 days.", "answer": null}
+{"prompt": "What is the chemical symbol for gold?", "completion": "The chemical symbol for gold is Au.", "answer": null}
+{"prompt": "How many sides does a hexagon have?", "completion": "A hexagon has 6 sides.", "answer": null}
+{"prompt": "What is the boiling point of water in Celsius?", "completion": "Water boils at 100 degrees Celsius.", "answer": null}
+{"prompt": "What planet is closest to the Sun?", "completion": "Mercury is the closest planet to the Sun.", "answer": null}
+{"prompt": "How many bytes are in a kilobyte?", "completion": "There are 1024 bytes in a kilobyte.", "answer": null}
+{"prompt": "What is the speed of light in km/s?", "completion": "The speed of light is approximately 299,792 km/s.", "answer": null}
+{"prompt": "What year was Python first released?", "completion": "Python was first released in 1991.", "answer": null}
+{"prompt": "How many bits in a byte?", "completion": "There are 8 bits in a byte.", "answer": null}
+{"prompt": "What does len([1,2,3]) return in Python?", "completion": "len([1,2,3]) returns 3 because the list has 3 elements.", "answer": null}
+{"prompt": "What is the output of print(type(42))?", "completion": "print(type(42)) outputs <class 'int'>.", "answer": null}
+{"prompt": "What does range(5) produce?", "completion": "range(5) produces values 0, 1, 2, 3, 4.", "answer": null}
+{"prompt": "What is 10 % 3 in Python?", "completion": "10 % 3 = 1 (remainder of 10 divided by 3).", "answer": null}
+{"prompt": "What does bool(0) return?", "completion": "bool(0) returns False.", "answer": null}
+{"prompt": "What is the index of 'b' in ['a','b','c']?", "completion": "The index of 'b' is 1.", "answer": null}
+{"prompt": "What does str(123) return?", "completion": "str(123) returns the string '123'.", "answer": null}
+{"prompt": "What is 2**10 in Python?", "completion": "2**10 = 1024.", "answer": null}
+{"prompt": "What does list(range(3)) return?", "completion": "list(range(3)) returns [0, 1, 2].", "answer": null}
+{"prompt": "What is the output of round(3.567, 2)?", "completion": "round(3.567, 2) returns 3.57.", "answer": null}
+{"prompt": "What is 47 + 83?", "completion": "47 + 83 = 130", "answer": null}
+{"prompt": "What is 256 divided by 8?", "completion": "256 / 8 = 32", "answer": null}
+{"prompt": "What is 15% of 200?", "completion": "15% of 200 = 0.15 \u00d7 200 = 30", "answer": null}
+{"prompt": "What is the square root of 144?", "completion": "\u221a144 = 12", "answer": null}
+{"prompt": "What is 7 \u00d7 8?", "completion": "7 \u00d7 8 = 56", "answer": null}
+{"prompt": "What is 1000 - 337?", "completion": "1000 - 337 = 663", "answer": null}
+{"prompt": "What is 3 squared plus 4 squared?", "completion": "3\u00b2 + 4\u00b2 = 9 + 16 = 25", "answer": null}
+{"prompt": "What is 20% of 350?", "completion": "20% of 350 = 0.20 \u00d7 350 = 70", "answer": null}
+{"prompt": "What is 144 / 12?", "completion": "144 / 12 = 12", "answer": null}
+{"prompt": "What is 2 to the power of 8?", "completion": "2^8 = 256", "answer": null}
+{"prompt": "What is the capital of France?", "completion": "The capital of France is Paris.", "answer": null}
+{"prompt": "How many days are in a leap year?", "completion": "A leap year has 366 days.", "answer": null}
+{"prompt": "What is the chemical symbol for gold?", "completion": "The chemical symbol for gold is Au.", "answer": null}
+{"prompt": "How many sides does a hexagon have?", "completion": "A hexagon has 6 sides.", "answer": null}
+{"prompt": "What is the boiling point of water in Celsius?", "completion": "Water boils at 100 degrees Celsius.", "answer": null}
+{"prompt": "What planet is closest to the Sun?", "completion": "Mercury is the closest planet to the Sun.", "answer": null}
+{"prompt": "How many bytes are in a kilobyte?", "completion": "There are 1024 bytes in a kilobyte.", "answer": null}
+{"prompt": "What is the speed of light in km/s?", "completion": "The speed of light is approximately 299,792 km/s.", "answer": null}
+{"prompt": "What year was Python first released?", "completion": "Python was first released in 1991.", "answer": null}
+{"prompt": "How many bits in a byte?", "completion": "There are 8 bits in a byte.", "answer": null}
+{"prompt": "What does len([1,2,3]) return in Python?", "completion": "len([1,2,3]) returns 3 because the list has 3 elements.", "answer": null}
+{"prompt": "What is the output of print(type(42))?", "completion": "print(type(42)) outputs <class 'int'>.", "answer": null}
+{"prompt": "What does range(5) produce?", "completion": "range(5) produces values 0, 1, 2, 3, 4.", "answer": null}
+{"prompt": "What is 10 % 3 in Python?", "completion": "10 % 3 = 1 (remainder of 10 divided by 3).", "answer": null}
+{"prompt": "What does bool(0) return?", "completion": "bool(0) returns False.", "answer": null}
+{"prompt": "What is the index of 'b' in ['a','b','c']?", "completion": "The index of 'b' is 1.", "answer": null}
+{"prompt": "What does str(123) return?", "completion": "str(123) returns the string '123'.", "answer": null}
+{"prompt": "What is 2**10 in Python?", "completion": "2**10 = 1024.", "answer": null}
+{"prompt": "What does list(range(3)) return?", "completion": "list(range(3)) returns [0, 1, 2].", "answer": null}
+{"prompt": "What is the output of round(3.567, 2)?", "completion": "round(3.567, 2) returns 3.57.", "answer": null}
+{"prompt": "What is 47 + 83?", "completion": "47 + 83 = 130", "answer": null}
+{"prompt": "What is 256 divided by 8?", "completion": "256 / 8 = 32", "answer": null}
+{"prompt": "What is 15% of 200?", "completion": "15% of 200 = 0.15 \u00d7 200 = 30", "answer": null}
+{"prompt": "What is the square root of 144?", "completion": "\u221a144 = 12", "answer": null}
+{"prompt": "What is 7 \u00d7 8?", "completion": "7 \u00d7 8 = 56", "answer": null}
+{"prompt": "What is 1000 - 337?", "completion": "1000 - 337 = 663", "answer": null}
+{"prompt": "What is 3 squared plus 4 squared?", "completion": "3\u00b2 + 4\u00b2 = 9 + 16 = 25", "answer": null}
+{"prompt": "What is 20% of 350?", "completion": "20% of 350 = 0.20 \u00d7 350 = 70", "answer": null}
+{"prompt": "What is 144 / 12?", "completion": "144 / 12 = 12", "answer": null}
+{"prompt": "What is 2 to the power of 8?", "completion": "2^8 = 256", "answer": null}

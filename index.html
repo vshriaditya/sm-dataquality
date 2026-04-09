@@ -1,0 +1,2088 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>sm/dataquality — SageMaker Data Checker</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400..700&family=Manrope:wght@400..800&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.3/dist/chart.umd.min.js"></script>
+    <style>
+      :root {
+        --bg: #f1eee7;
+        --surface: #fbfaf7;
+        --surface-2: #f7f4ee;
+        --surface-3: #efebe4;
+        --border: #c6c0b5;
+        --border-strong: #b4ada1;
+        --text: #28251d;
+        --text-muted: #4f4a41;
+        --text-faint: #635e54;
+        --accent: #01696f;
+        --accent-hover: #0c4e54;
+        --accent-dim: #cedcd8;
+        --red: #b0416a;
+        --red-dim: #f3dce7;
+        --amber: #964219;
+        --amber-dim: #ead9cf;
+        --green: #437a22;
+        --green-dim: #d4dfcc;
+        --radius-sm: 6px;
+        --radius-md: 8px;
+        --radius-lg: 12px;
+        --radius-xl: 16px;
+        --space-2: 8px;
+        --space-3: 12px;
+        --space-4: 16px;
+        --space-6: 24px;
+        --space-8: 32px;
+        --font-display: 'Fraunces', Georgia, serif;
+        --font-body: 'Manrope', 'Helvetica Neue', sans-serif;
+        --shadow-sm: 0 1px 2px oklch(0.2 0.01 80 / 0.06);
+        --shadow-md: 0 4px 12px oklch(0.2 0.01 80 / 0.08);
+        --shadow-lg: 0 12px 32px oklch(0.2 0.01 80 / 0.12);
+      }
+
+      * {
+        box-sizing: border-box;
+      }
+
+      html,
+      body {
+        margin: 0;
+        min-height: 100%;
+        background: var(--bg);
+      }
+
+      body {
+        font-family: var(--font-body);
+        font-size: 15px;
+        line-height: 1.6;
+        color: var(--text);
+        background: radial-gradient(circle at 20% 0%, var(--surface-2) 0%, var(--bg) 45%, var(--surface-3) 100%);
+      }
+
+      button,
+      input,
+      textarea {
+        font: inherit;
+      }
+
+      .app-shell {
+        min-height: 100vh;
+        background: radial-gradient(circle at 20% 0%, var(--surface-2) 0%, var(--bg) 45%, var(--surface-3) 100%);
+      }
+
+      .topbar {
+        min-height: 56px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 0 var(--space-6);
+        border-bottom: 1px solid var(--border);
+        background: var(--surface);
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(4px);
+      }
+
+      .brand {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-3);
+      }
+
+      .brand-wordmark {
+        font-family: var(--font-body);
+        font-size: 15px;
+        letter-spacing: 0.01em;
+        font-weight: 700;
+      }
+
+      .brand-wordmark .prefix {
+        color: var(--text-faint);
+        font-weight: 400;
+      }
+
+      .brand-wordmark .name {
+        color: var(--accent);
+        font-weight: 700;
+      }
+
+      .topbar-actions {
+        display: inline-flex;
+        align-items: center;
+        gap: var(--space-2);
+        flex-wrap: wrap;
+        justify-content: flex-end;
+      }
+
+      .topbar-badge {
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        color: var(--text-faint);
+        font-size: 11px;
+        padding: var(--space-2) var(--space-3);
+        white-space: nowrap;
+        background: var(--surface-2);
+        font-weight: 600;
+      }
+
+      .topbar-link {
+        min-height: 44px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        background: var(--surface);
+        color: var(--text);
+        padding: 0 var(--space-4);
+        font-size: 11px;
+        font-weight: 700;
+        display: inline-flex;
+        align-items: center;
+        text-decoration: none;
+        transition: background 180ms ease, border-color 180ms ease, color 180ms ease;
+      }
+
+      .topbar-link:hover,
+      .topbar-link:focus-visible {
+        border-color: var(--accent);
+        background: var(--accent-dim);
+        color: var(--accent);
+        outline: none;
+      }
+
+      .main {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: var(--space-8) var(--space-6) var(--space-8);
+      }
+
+      .card {
+        background: var(--surface);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-lg);
+        padding: var(--space-6);
+        box-shadow: var(--shadow-md);
+      }
+
+      .hero {
+        text-align: left;
+      }
+
+      .hero-copy {
+        padding: 0 var(--space-4);
+      }
+
+      .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 12px;
+        color: var(--accent);
+        font-size: 11px;
+        font-weight: 500;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .hero-eyebrow-dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--accent);
+        flex-shrink: 0;
+      }
+
+      .hero-title {
+        margin: 0 0 14px;
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 1.7rem + 1.9vw, 3.1rem);
+        font-weight: 700;
+        line-height: 1.12;
+        color: var(--text);
+        text-align: left;
+      }
+
+      .hero-subtitle {
+        margin: 0 0 28px;
+        max-width: 100%;
+        font-size: 15px;
+        line-height: 1.6;
+        color: var(--text-muted);
+        text-align: left;
+      }
+
+      .hero-table-wrap {
+        width: 100%;
+        border: 1px solid var(--border-strong);
+        border-radius: var(--radius-lg);
+        overflow: hidden;
+        margin-bottom: 32px;
+        background: var(--surface);
+      }
+
+      .hero-table {
+        width: 100%;
+        border-collapse: collapse;
+        table-layout: fixed;
+      }
+
+      .hero-table col:nth-child(1) {
+        width: 40%;
+      }
+
+      .hero-table col:nth-child(2),
+      .hero-table col:nth-child(3) {
+        width: 30%;
+      }
+
+      .hero-table thead tr {
+        background: var(--surface-3);
+        border-bottom: 1px solid var(--border);
+      }
+
+      .hero-table th {
+        padding: 10px 16px;
+        font-size: 11px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--text-muted);
+        font-weight: 500;
+        text-align: center;
+      }
+
+      .hero-table th:first-child {
+        text-align: left;
+      }
+
+      .hero-table th:last-child,
+      .hero-table td:last-child {
+        border-left: 1px solid var(--border);
+      }
+
+      .hero-label-pill {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 11px;
+        padding: 2px 8px;
+        border-radius: 4px;
+        text-transform: none;
+        letter-spacing: normal;
+      }
+
+      .hero-label-pill.sagemaker {
+        background: rgba(255, 153, 0, 0.1);
+        border: 1px solid rgba(255, 153, 0, 0.2);
+        color: #ff9900;
+      }
+
+      .hero-label-pill.dataquality {
+        background: var(--accent-dim);
+        border: 1px solid var(--accent);
+        color: var(--accent);
+      }
+
+      .hero-table tbody tr {
+        border-bottom: 1px solid var(--border);
+        transition: background 120ms ease;
+      }
+
+      .hero-table tbody tr:last-child {
+        border-bottom: none;
+      }
+
+      .hero-table tbody tr:nth-child(odd) {
+        background: var(--surface-2);
+      }
+
+      .hero-table tbody tr:nth-child(even) {
+        background: var(--surface);
+      }
+
+      .hero-table tbody tr:hover {
+        background: var(--surface-2);
+      }
+
+      .hero-table td {
+        padding: 11px 16px;
+        font-size: 13px;
+        text-align: center;
+        color: var(--text);
+      }
+
+      .hero-table td:first-child {
+        text-align: left;
+        color: var(--text);
+        font-weight: 500;
+      }
+
+      .hero-status-unsupported {
+        color: var(--text-faint);
+        font-size: 14px;
+        line-height: 1;
+      }
+
+      .hero-bottom-note {
+        margin-bottom: 28px;
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        color: var(--text-muted);
+        font-size: 13px;
+      }
+
+      .visually-hidden {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip: rect(0, 0, 0, 0);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      .divider {
+        margin: 20px 0;
+        border: 0;
+        border-top: 1px solid var(--border);
+      }
+
+      .section-label {
+        font-size: 12px;
+        color: var(--text-muted);
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        margin-bottom: var(--space-3);
+        font-weight: 700;
+      }
+
+      .upload-zone {
+        border: 2px dashed var(--border-strong);
+        background: var(--surface-2);
+        border-radius: var(--radius-lg);
+        min-height: 156px;
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        cursor: pointer;
+        transition: border-color 150ms ease, background 150ms ease, transform 100ms ease;
+        padding: 16px;
+      }
+
+      .upload-zone:hover,
+      .upload-zone.drag-over {
+        border-color: var(--accent);
+        background: var(--accent-dim);
+      }
+
+      .upload-zone.drag-over {
+        transform: scale(1.01);
+      }
+
+      .upload-primary {
+        color: var(--text);
+        font-size: 15px;
+        font-weight: 600;
+      }
+
+      .upload-secondary {
+        color: var(--text-muted);
+        font-size: 13px;
+      }
+
+      .upload-note {
+        color: var(--text-muted);
+        font-size: 11px;
+      }
+
+      .sample-link {
+        margin-top: 10px;
+        display: inline-block;
+        color: var(--accent);
+        font-size: 12px;
+        text-decoration: none;
+      }
+
+      .sample-link:hover {
+        color: var(--accent-hover);
+      }
+
+      .sample-tools {
+        margin-top: 10px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 8px;
+      }
+
+      .sample-select {
+        min-width: 240px;
+        max-width: 100%;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        background: var(--surface-2);
+        color: var(--text);
+        font-size: 13px;
+        min-height: 44px;
+        padding: 10px 12px;
+      }
+
+      .sample-load-btn {
+        border: 1px solid var(--border-strong);
+        border-radius: var(--radius-md);
+        background: var(--surface);
+        color: var(--text);
+        font-size: 13px;
+        min-height: 44px;
+        padding: 10px 14px;
+        font-weight: 600;
+        cursor: pointer;
+        transition: background 150ms ease;
+      }
+
+      .sample-load-btn:hover {
+        background: var(--accent-dim);
+        border-color: var(--accent);
+      }
+
+      .file-pill {
+        margin-top: 12px;
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        background: var(--surface-3);
+        padding: 8px 12px;
+        max-width: 100%;
+        font-size: 14px;
+      }
+
+      .dot {
+        width: 6px;
+        height: 6px;
+        border-radius: 50%;
+        background: var(--green);
+        flex: 0 0 auto;
+      }
+
+      .file-pill-name {
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+        max-width: 300px;
+      }
+
+      .file-pill-size {
+        color: var(--text-faint);
+      }
+
+      .remove-file {
+        margin-left: 2px;
+        border: 0;
+        background: transparent;
+        color: var(--text-faint);
+        padding: 0;
+        cursor: pointer;
+        font-size: 14px;
+        line-height: 1;
+      }
+
+      .technique-row {
+        display: grid;
+        grid-template-columns: repeat(4, minmax(0, 1fr));
+        gap: 10px;
+      }
+
+      .technique-btn {
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        background: var(--surface-2);
+        color: var(--text);
+        padding: 12px 10px;
+        text-align: center;
+        cursor: pointer;
+        transition: all 180ms ease;
+        min-height: 72px;
+      }
+
+      .technique-btn:hover {
+        border-color: var(--accent);
+        background: var(--accent-dim);
+      }
+
+      .technique-btn .abbr {
+        display: block;
+        font-size: 14px;
+        font-weight: 700;
+        line-height: 1.1;
+      }
+
+      .technique-btn .full {
+        display: block;
+        margin-top: 4px;
+        font-size: 11px;
+        color: var(--text-muted);
+        line-height: 1.2;
+      }
+
+      .technique-btn.selected {
+        background: var(--accent-dim);
+        border-color: var(--accent);
+        color: var(--accent);
+      }
+
+      .technique-btn.selected .full {
+        color: color-mix(in srgb, var(--accent) 80%, transparent);
+      }
+
+      .schema-strip {
+        margin-top: 12px;
+        border-radius: var(--radius-md);
+        background: var(--surface-3);
+        padding: 12px 14px;
+        font-size: 13px;
+      }
+
+      .schema-label {
+        font-size: 11px;
+        color: var(--text-muted);
+        margin-bottom: 6px;
+      }
+
+      .schema-fields {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 6px;
+      }
+
+      .field-chip {
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        background: var(--surface-2);
+        padding: 2px 8px;
+        color: var(--text-muted);
+        font-size: 12px;
+        font-family: var(--font-body);
+      }
+
+      .action-btn {
+        width: 100%;
+        border-radius: var(--radius-md);
+        min-height: 44px;
+        padding: 10px 20px;
+        font-size: 14px;
+        font-weight: 600;
+        transition: background 180ms ease, opacity 180ms ease, border-color 180ms ease;
+        cursor: pointer;
+      }
+
+      .action-btn.primary {
+        border: 0;
+        background: var(--accent);
+        color: #fff;
+      }
+
+      .action-btn.primary:hover {
+        background: var(--accent-hover);
+      }
+
+      .action-btn.ghost {
+        border: 1px solid var(--border-strong);
+        background: var(--surface);
+        color: var(--text);
+      }
+
+      .action-btn.ghost:hover {
+        background: var(--accent-dim);
+        border-color: var(--accent);
+      }
+
+      .action-btn:disabled {
+        opacity: 0.35;
+        cursor: not-allowed;
+        pointer-events: none;
+      }
+
+      .privacy-note {
+        margin-top: 10px;
+        font-size: 13px;
+        color: var(--text-muted);
+        text-align: center;
+      }
+
+      .screen {
+        opacity: 0;
+        transition: opacity 200ms ease-out;
+      }
+
+      .screen.visible {
+        opacity: 1;
+      }
+
+      .progress-head {
+        font-size: 14px;
+        color: var(--text-muted);
+      }
+
+      .context-pill {
+        margin-top: 10px;
+        display: inline-block;
+        border: 1px solid var(--border);
+        border-radius: var(--radius-md);
+        background: var(--surface-3);
+        color: var(--text-muted);
+        font-size: 13px;
+        padding: 8px 12px;
+      }
+
+      .steps {
+        width: min(100%, 280px);
+        margin: 22px auto 0;
+        display: grid;
+        gap: 12px;
+      }
+
+      .step {
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        color: var(--text-muted);
+        font-size: 13px;
+      }
+
+      .icon {
+        width: 16px;
+        height: 16px;
+        border-radius: 50%;
+        flex: 0 0 auto;
+      }
+
+      .icon.pending {
+        border: 1.5px solid var(--border-strong);
+      }
+
+      .icon.running {
+        border: 1.5px solid var(--accent-dim);
+        border-top-color: var(--accent);
+        animation: spin 0.7s linear infinite;
+      }
+
+      .icon.done {
+        border: 1px solid var(--green);
+        background: var(--green-dim);
+        display: grid;
+        place-items: center;
+      }
+
+      .summary {
+        display: grid;
+        grid-template-columns: 1.2fr 1fr 0.9fr;
+      }
+
+      .summary-col {
+        padding: 10px 18px;
+      }
+
+      .summary-col + .summary-col {
+        border-left: 1px solid var(--border);
+      }
+
+      .score-wrap {
+        text-align: center;
+        position: relative;
+      }
+
+      .score-wrap::before {
+        content: "Health Score";
+        display: block;
+        margin-bottom: 6px;
+        font-size: 12px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        color: var(--text-faint);
+        font-weight: 700;
+      }
+
+      .score-value {
+        font-size: 52px;
+        font-weight: 700;
+        line-height: 1.05;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .score-value .suffix {
+        font-size: 22px;
+        color: var(--text-faint);
+      }
+
+      .verdict {
+        margin-top: 8px;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 13px;
+        font-weight: 700;
+      }
+
+      .stats-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px 18px;
+      }
+
+      .stat-label {
+        color: var(--text-faint);
+        font-size: 11px;
+        font-weight: 700;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .stat-value {
+        color: var(--text);
+        font-size: 28px;
+        line-height: 1.1;
+        font-weight: 650;
+        font-variant-numeric: tabular-nums;
+      }
+
+      .chip-stack {
+        display: grid;
+        gap: 8px;
+        margin-top: 4px;
+      }
+
+      .severity-chip {
+        font-size: 12px;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.06em;
+        border-radius: var(--radius-sm);
+        padding: 5px 10px;
+        display: inline-block;
+        border: 1px solid transparent;
+      }
+
+      .sev-critical {
+        background: var(--red-dim);
+        color: var(--red);
+        border-color: color-mix(in srgb, var(--red) 35%, transparent);
+      }
+
+      .sev-warning {
+        background: var(--amber-dim);
+        color: var(--amber);
+        border-color: color-mix(in srgb, var(--amber) 35%, transparent);
+      }
+
+      .sev-passed {
+        background: var(--green-dim);
+        color: var(--green);
+        border-color: color-mix(in srgb, var(--green) 35%, transparent);
+      }
+
+      .sev-critical::before,
+      .sev-warning::before,
+      .sev-passed::before {
+        display: inline-block;
+        margin-right: 6px;
+        font-weight: 800;
+      }
+
+      .sev-critical::before,
+      .sev-warning::before {
+        content: "!";
+      }
+
+      .sev-passed::before {
+        content: "✓";
+      }
+
+      .summary-chip {
+        width: 100%;
+        text-align: left;
+      }
+
+      .result-card {
+        margin-top: var(--space-4);
+        border-color: var(--border-strong);
+        box-shadow: var(--shadow-sm);
+      }
+
+      .result-head {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .check-title {
+        font-size: 1.2rem;
+        font-weight: 700;
+        line-height: 1.3;
+      }
+
+      .affected-badge {
+        margin-left: auto;
+        background: var(--surface-3);
+        border: 1px solid var(--border);
+        border-radius: var(--radius-sm);
+        color: var(--text);
+        font-size: 14px;
+        font-weight: 650;
+        min-width: 40px;
+        text-align: center;
+        padding: 4px 10px;
+      }
+
+      .check-text {
+        margin-top: 12px;
+        color: var(--text);
+        font-size: 1rem;
+        line-height: 1.6;
+      }
+
+      .why-block {
+        margin: 14px 0;
+        border: 1px solid var(--border);
+        border-left: 4px solid var(--accent);
+        border-radius: var(--radius-sm);
+        padding: 12px 14px;
+        font-size: 15px;
+        color: var(--text-muted);
+        line-height: 1.65;
+        background: var(--surface-2);
+        font-style: normal;
+      }
+
+      .why-block b {
+        color: var(--accent);
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-weight: 750;
+      }
+
+      .chart-wrap {
+        margin-top: 12px;
+        height: 130px;
+      }
+
+      .fix-block {
+        margin-top: 14px;
+        border-radius: var(--radius-md);
+        background: var(--surface-2);
+        border: 1px solid var(--border);
+        padding: 12px 14px;
+        font-size: 15px;
+        line-height: 1.55;
+      }
+
+      .fix-label {
+        color: var(--accent);
+        font-size: 12px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        font-weight: 750;
+      }
+
+      .fix-text {
+        color: var(--text);
+      }
+
+      .parse-warning {
+        margin-bottom: 12px;
+        border-radius: var(--radius-md);
+        border: 1px solid var(--border);
+        background: var(--surface-2);
+        color: var(--text-muted);
+        padding: 10px 12px;
+        font-size: 12px;
+      }
+
+      .size-meter {
+        margin-top: 8px;
+      }
+
+      .size-bar {
+        position: relative;
+        height: 6px;
+        border-radius: 3px;
+        background: var(--surface-3);
+        overflow: hidden;
+      }
+
+      .size-fill {
+        width: 0;
+        height: 100%;
+        border-radius: 3px;
+        transition: width 400ms ease-out;
+      }
+
+      .size-ticks {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 7px;
+        color: var(--text-muted);
+        font-size: 13px;
+        font-weight: 600;
+      }
+
+      .bottom-actions {
+        margin-top: var(--space-3);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: var(--space-3);
+      }
+
+      .footer {
+        text-align: center;
+        color: var(--text-muted);
+        font-size: 11px;
+        padding: 24px 0;
+      }
+
+      .status-error {
+        margin-top: 10px;
+        color: var(--red);
+        font-size: 12px;
+      }
+
+      .fade-seq {
+        opacity: 0;
+        transition: opacity 200ms ease-out;
+      }
+
+      .fade-seq.show {
+        opacity: 1;
+      }
+
+      @keyframes spin {
+        to {
+          transform: rotate(360deg);
+        }
+      }
+
+      :focus-visible {
+        outline: 2px solid var(--accent);
+        outline-offset: 2px;
+        border-radius: var(--radius-sm);
+      }
+
+      @media (max-width: 760px) {
+        .topbar {
+          min-height: 54px;
+          padding: 0 var(--space-4);
+        }
+
+        .topbar-badge {
+          display: none;
+        }
+
+        .main {
+          padding: var(--space-6) var(--space-4) var(--space-8);
+        }
+
+        .card {
+          padding: var(--space-4);
+        }
+
+        .technique-row {
+          grid-template-columns: 1fr 1fr;
+        }
+
+        .summary {
+          grid-template-columns: 1fr;
+          gap: 14px;
+        }
+
+        .summary-col + .summary-col {
+          border-left: 0;
+          border-top: 1px solid var(--border);
+          padding-top: 14px;
+        }
+
+        .score-value {
+          font-size: 44px;
+        }
+
+        .stat-value {
+          font-size: 22px;
+        }
+      }
+
+      @media (max-width: 640px) {
+        .hero-copy {
+          padding: 0 4px;
+        }
+
+        .hero-title {
+          font-size: clamp(24px, 7vw, 30px);
+        }
+
+        .hero-subtitle {
+          max-width: 100%;
+        }
+
+        .hero-table col:nth-child(1) {
+          width: 50%;
+        }
+
+        .hero-table col:nth-child(2),
+        .hero-table col:nth-child(3) {
+          width: 25%;
+        }
+
+        .hero-table th,
+        .hero-table td {
+          padding: 10px 10px;
+        }
+
+        .hero-table td {
+          font-size: 12px;
+        }
+
+        .sample-select,
+        .sample-load-btn {
+          width: 100%;
+        }
+
+        .bottom-actions {
+          grid-template-columns: 1fr;
+        }
+
+        .hero-table .hide-mobile-header {
+          display: none;
+        }
+      }
+
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation: none !important;
+          transition-duration: 0ms !important;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="topbar">
+        <div class="brand">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+            <path d="M12 2L22 12L12 22L2 12L12 2Z" stroke="var(--accent)" stroke-width="1.6"></path>
+            <circle cx="12" cy="12" r="2.2" fill="var(--accent)"></circle>
+            <path d="M12 4.8V9.1M19.2 12H14.9M12 19.2V14.9M4.8 12H9.1" stroke="var(--accent)" stroke-width="1.4" stroke-linecap="round"></path>
+          </svg>
+          <div class="brand-wordmark"><span class="prefix">sm/</span><span class="name">dataquality</span></div>
+        </div>
+        <div class="topbar-actions">
+          <div class="topbar-badge">SageMaker · Fine-Tuning Data Checker</div>
+          <a class="topbar-link" href="http://127.0.0.1:8000/sm-decide.html">Open sm/decide</a>
+        </div>
+      </header>
+
+      <main class="main">
+        <section id="screen" class="screen visible"></section>
+        <footer class="footer">
+          sm/dataquality · All analysis runs locally in your browser. No data is transmitted to any server.
+        </footer>
+      </main>
+    </div>
+
+    <input id="fileInput" type="file" accept=".jsonl,application/jsonl,text/plain,application/x-ndjson" hidden />
+
+    <script>
+      let uploadedRows = [];
+      let selectedTechnique = "";
+      let analysisResults = {};
+      let uploadedFileMeta = null;
+      let parseErrorCount = 0;
+      let activeScreen = "setup";
+      let charts = { length: null, dpo: null };
+      let reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+      const requiredFields = {
+        SFT: ["prompt", "completion"],
+        DPO: ["prompt", "chosen", "rejected"],
+        RLVR: ["prompt", "completion"],
+        RLAIF: ["prompt", "completion"],
+      };
+
+      const techniqueNames = {
+        SFT: "Supervised Fine-Tuning",
+        DPO: "Direct Preference Opt.",
+        RLVR: "RL Verifiable Rewards",
+        RLAIF: "RL from AI Feedback",
+      };
+
+      const thresholds = {
+        SFT: { warn: 200, fail: 50 },
+        DPO: { warn: 500, fail: 100 },
+        RLVR: { warn: 1000, fail: 200 },
+        RLAIF: { warn: 300, fail: 50 },
+      };
+
+      if (window.Chart) {
+        Chart.defaults.color = "#7a8494";
+        Chart.defaults.borderColor = "rgba(255,255,255,0.06)";
+        Chart.defaults.font.family = "Manrope, sans-serif";
+        Chart.defaults.font.size = 11;
+      }
+
+      function formatBytes(bytes) {
+        if (bytes === 0) return "0 B";
+        const units = ["B", "KB", "MB", "GB"];
+        let val = bytes;
+        let i = 0;
+        while (val >= 1024 && i < units.length - 1) {
+          val /= 1024;
+          i++;
+        }
+        return (i === 0 ? val.toFixed(0) : val.toFixed(1)) + " " + units[i];
+      }
+
+      function formatPct(value) {
+        return (value * 100).toFixed(1);
+      }
+
+      function clamp(num, min, max) {
+        return Math.max(min, Math.min(max, num));
+      }
+
+      function escapeHtml(text) {
+        return String(text)
+          .replaceAll("&", "&amp;")
+          .replaceAll("<", "&lt;")
+          .replaceAll(">", "&gt;");
+      }
+
+      function resetCharts() {
+        if (charts.length) charts.length.destroy();
+        if (charts.dpo) charts.dpo.destroy();
+        charts = { length: null, dpo: null };
+      }
+
+      function fieldChipList(fields) {
+        return fields
+          .map((field) => `<span class="field-chip">${escapeHtml(field)}</span>`)
+          .join("");
+      }
+
+      function severityClass(status) {
+        if (status === "critical") return "sev-critical";
+        if (status === "warning") return "sev-warning";
+        return "sev-passed";
+      }
+
+      function severityLabel(status) {
+        if (status === "critical") return "CRITICAL";
+        if (status === "warning") return "WARNING";
+        return "PASSED";
+      }
+
+      function renderSetupScreen(errorMessage) {
+        activeScreen = "setup";
+        const screen = document.getElementById("screen");
+        const hasFile = !!uploadedFileMeta;
+        const canAnalyze = hasFile && !!selectedTechnique && uploadedRows.length > 0;
+        const reqFields = selectedTechnique ? requiredFields[selectedTechnique] : [];
+
+        screen.classList.remove("visible");
+        screen.innerHTML = `
+          <section class="hero" aria-label="Value proposition">
+            <div class="hero-copy">
+              <div class="hero-eyebrow">
+                <span class="hero-eyebrow-dot" aria-hidden="true"></span>
+                <span>SageMaker Model Customization · Pre-flight Checker</span>
+              </div>
+              <h1 class="hero-title">Catch fine-tuning data problems<br />before they cost you.</h1>
+              <p class="hero-subtitle">
+                SageMaker validates your JSONL schema at job submission — nothing more. sm/dataquality runs four LLM-specific checks in your browser before you launch a training job.
+              </p>
+            </div>
+            <div class="hero-table-wrap" role="region" aria-label="Feature comparison: SageMaker and sm/dataquality">
+              <table class="hero-table">
+                <colgroup>
+                  <col />
+                  <col />
+                  <col />
+                </colgroup>
+                <thead>
+                  <tr>
+                    <th><span class="hide-mobile-header">CHECK</span></th>
+                    <th>
+                      <span class="hero-label-pill sagemaker">SageMaker</span>
+                    </th>
+                    <th>
+                      <span class="hero-label-pill dataquality">sm/dataquality</span>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>JSONL Schema Validation</td>
+                    <td>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-label="Supported">
+                        <circle cx="8" cy="8" r="7" fill="rgba(74,222,128,0.12)"></circle>
+                        <path d="M5 8l2 2 4-4" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </td>
+                    <td>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-label="Supported">
+                        <circle cx="8" cy="8" r="7" fill="rgba(74,222,128,0.12)"></circle>
+                        <path d="M5 8l2 2 4-4" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Prompt &amp; Completion Length</td>
+                    <td><span class="hero-status-unsupported">—</span></td>
+                    <td>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-label="Supported">
+                        <circle cx="8" cy="8" r="7" fill="rgba(74,222,128,0.12)"></circle>
+                        <path d="M5 8l2 2 4-4" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Dataset Size for Technique</td>
+                    <td><span class="hero-status-unsupported">—</span></td>
+                    <td>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-label="Supported">
+                        <circle cx="8" cy="8" r="7" fill="rgba(74,222,128,0.12)"></circle>
+                        <path d="M5 8l2 2 4-4" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>DPO Chosen/Rejected Divergence</td>
+                    <td><span class="hero-status-unsupported">—</span></td>
+                    <td>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-label="Supported">
+                        <circle cx="8" cy="8" r="7" fill="rgba(74,222,128,0.12)"></circle>
+                        <path d="M5 8l2 2 4-4" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </td>
+                  </tr>
+                  <tr>
+                    <td>Actionable Fix Recommendations</td>
+                    <td><span class="hero-status-unsupported">—</span></td>
+                    <td>
+                      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-label="Supported">
+                        <circle cx="8" cy="8" r="7" fill="rgba(74,222,128,0.12)"></circle>
+                        <path d="M5 8l2 2 4-4" stroke="#4ade80" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="hero-copy">
+              <div class="hero-bottom-note">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                  <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                </svg>
+                <span>Checks run entirely in your browser — no data leaves your machine.</span>
+              </div>
+            </div>
+          </section>
+          <div class="card">
+            <div class="section-label">Dataset</div>
+            <label class="upload-zone" id="uploadZone" for="fileInput" tabindex="0" role="button" aria-label="Upload JSONL dataset">
+              <svg width="28" height="28" viewBox="0 0 24 24" fill="none" aria-hidden="true">
+                <path d="M6 17.5A4.5 4.5 0 0 1 6.5 8.6a6 6 0 0 1 11.8 1.4A3.8 3.8 0 0 1 18 17.5H6Z" stroke="var(--text-faint)" stroke-width="1.4"></path>
+                <path d="M12 8v8m0-8-3 3m3-3 3 3" stroke="var(--text-faint)" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
+              </svg>
+              <div class="upload-primary">Drop your .jsonl file here</div>
+              <div class="upload-secondary">or click to browse</div>
+              <div class="upload-note">.jsonl · UTF-8 encoded</div>
+            </label>
+            <div class="sample-tools">
+              <a href="#" class="sample-link" id="sampleLink">Try with generated sample data</a>
+              <select class="sample-select" id="sampleSelect" aria-label="Choose a demo dataset">
+                <option value="">Choose demo file...</option>
+                <option value="dpo_clean.jsonl">dpo_clean.jsonl</option>
+                <option value="dpo_mixed.jsonl">dpo_mixed.jsonl</option>
+                <option value="dpo_broken.jsonl">dpo_broken.jsonl</option>
+                <option value="rlvr_clean.jsonl">rlvr_clean.jsonl</option>
+                <option value="rlvr_mixed.jsonl">rlvr_mixed.jsonl</option>
+                <option value="rlvr_broken.jsonl">rlvr_broken.jsonl</option>
+                <option value="sft_broken.jsonl">sft_broken.jsonl</option>
+              </select>
+              <button class="sample-load-btn" id="sampleLoadBtn" type="button">Load demo file</button>
+            </div>
+            ${
+              hasFile
+                ? `<div class="file-pill">
+                    <span class="dot"></span>
+                    <span class="file-pill-name">${escapeHtml(uploadedFileMeta.name)}</span>
+                    <span class="file-pill-size">${escapeHtml(uploadedFileMeta.meta)}</span>
+                    <button class="remove-file" id="removeFile" aria-label="Remove file">×</button>
+                  </div>`
+                : ""
+            }
+            ${errorMessage ? `<div class="status-error">${escapeHtml(errorMessage)}</div>` : ""}
+
+            <hr class="divider" />
+            <div class="section-label">Technique</div>
+            <div class="technique-row" id="techniqueRow">
+              ${Object.entries(techniqueNames)
+                .map(
+                  ([abbr, full]) => `
+                  <button class="technique-btn ${selectedTechnique === abbr ? "selected" : ""}" data-tech="${abbr}">
+                    <span class="abbr">${abbr}</span>
+                    <span class="full">${full}</span>
+                  </button>`
+                )
+                .join("")}
+            </div>
+            <div class="schema-strip">
+              <div class="schema-label">Required fields:</div>
+              <div class="schema-fields">
+                ${
+                  reqFields.length
+                    ? reqFields.map((f) => `<span class="field-chip">${f}</span><span style="color:var(--text-faint);font-size:11px;">string</span>`).join("")
+                    : '<span style="color:var(--text-faint);font-size:12px;">Choose a technique to preview schema</span>'
+                }
+              </div>
+            </div>
+
+            <hr class="divider" />
+            <button class="action-btn primary" id="analyzeBtn" ${canAnalyze ? "" : "disabled"}>Analyze Dataset</button>
+            <div class="privacy-note">🔒 Runs entirely in your browser. Your dataset is never uploaded.</div>
+          </div>
+        `;
+
+        requestAnimationFrame(() => screen.classList.add("visible"));
+
+        const zone = document.getElementById("uploadZone");
+        zone.addEventListener("keydown", (event) => {
+          if (event.key === "Enter" || event.key === " ") {
+            event.preventDefault();
+            document.getElementById("fileInput").click();
+          }
+        });
+
+        zone.addEventListener("dragover", (event) => {
+          event.preventDefault();
+          zone.classList.add("drag-over");
+        });
+        zone.addEventListener("dragleave", () => zone.classList.remove("drag-over"));
+        zone.addEventListener("drop", (event) => {
+          event.preventDefault();
+          zone.classList.remove("drag-over");
+          if (event.dataTransfer.files && event.dataTransfer.files[0]) {
+            loadFile(event.dataTransfer.files[0]);
+          }
+        });
+
+        const sampleLink = document.getElementById("sampleLink");
+        sampleLink.addEventListener("click", (event) => {
+          event.preventDefault();
+          loadSampleData();
+        });
+
+        const sampleLoadBtn = document.getElementById("sampleLoadBtn");
+        const sampleSelect = document.getElementById("sampleSelect");
+        sampleLoadBtn.addEventListener("click", () => {
+          if (!sampleSelect.value) return;
+          loadSampleFile(sampleSelect.value);
+        });
+
+        const removeBtn = document.getElementById("removeFile");
+        if (removeBtn) {
+          removeBtn.addEventListener("click", (event) => {
+            event.preventDefault();
+            uploadedRows = [];
+            uploadedFileMeta = null;
+            parseErrorCount = 0;
+            analysisResults = {};
+            document.getElementById("fileInput").value = "";
+            renderSetupScreen("");
+          });
+        }
+
+        const row = document.getElementById("techniqueRow");
+        row.querySelectorAll("[data-tech]").forEach((btn) => {
+          btn.addEventListener("click", () => {
+            selectedTechnique = btn.dataset.tech;
+            renderSetupScreen("");
+          });
+        });
+
+        document.getElementById("analyzeBtn").addEventListener("click", () => {
+          if (canAnalyze) runAnalysis();
+        });
+      }
+
+      function parseJSONL(text) {
+        const lines = text.split(/\r?\n/);
+        const rows = [];
+        let errors = 0;
+        for (const line of lines) {
+          if (!line.trim()) continue;
+          try {
+            rows.push(JSON.parse(line));
+          } catch (error) {
+            errors++;
+          }
+        }
+        return { rows, errors };
+      }
+
+      function loadFile(file) {
+        const reader = new FileReader();
+        reader.onload = () => {
+          const { rows, errors } = parseJSONL(String(reader.result || ""));
+          uploadedRows = rows;
+          parseErrorCount = errors;
+          uploadedFileMeta = {
+            name: file.name,
+            meta: formatBytes(file.size),
+            size: file.size,
+            isDemo: false,
+          };
+          renderSetupScreen(rows.length ? "" : "No valid JSONL rows were found. Fix file formatting and try again.");
+        };
+        reader.onerror = () => {
+          renderSetupScreen("Unable to read file. Please upload a UTF-8 encoded .jsonl file.");
+        };
+        reader.readAsText(file, "utf-8");
+      }
+
+      function loadSampleData() {
+        const rows = generateSampleData();
+        uploadedRows = rows;
+        parseErrorCount = 0;
+        selectedTechnique = "DPO";
+        uploadedFileMeta = {
+          name: "sample-dpo-dataset.jsonl",
+          meta: `${rows.length} rows · Demo`,
+          size: 0,
+          isDemo: true,
+        };
+        renderSetupScreen("");
+        setTimeout(() => {
+          if (activeScreen === "setup") runAnalysis();
+        }, 500);
+      }
+
+      async function loadSampleFile(fileName) {
+        try {
+          const response = await fetch(fileName, { cache: "no-store" });
+          if (!response.ok) {
+            renderSetupScreen(`Couldn't load ${fileName}. Make sure the file exists in this folder.`);
+            return;
+          }
+          const text = await response.text();
+          const { rows, errors } = parseJSONL(text);
+          uploadedRows = rows;
+          parseErrorCount = errors;
+
+          const techniqueHint = fileName.split("_")[0].toUpperCase();
+          if (requiredFields[techniqueHint]) {
+            selectedTechnique = techniqueHint;
+          }
+
+          uploadedFileMeta = {
+            name: fileName,
+            meta: `${rows.length} rows · Demo`,
+            size: 0,
+            isDemo: true,
+          };
+
+          renderSetupScreen(rows.length ? "" : `No valid JSONL rows found in ${fileName}.`);
+        } catch (error) {
+          renderSetupScreen(`Couldn't load ${fileName}.`);
+        }
+      }
+
+      function isValidStringField(value) {
+        return typeof value === "string" && value.trim().length > 0;
+      }
+
+      function checkSchema(rows, technique) {
+        const fields = requiredFields[technique];
+        const missingFields = new Set();
+        let missingCount = 0;
+        for (const row of rows) {
+          let bad = false;
+          for (const field of fields) {
+            if (!isValidStringField(row[field])) {
+              missingFields.add(field);
+              bad = true;
+            }
+          }
+          if (bad) missingCount++;
+        }
+        return {
+          passed: missingCount === 0,
+          missingCount,
+          missingFields: [...missingFields],
+          total: rows.length,
+        };
+      }
+
+      function bucketIndex(len) {
+        if (len <= 128) return 0;
+        if (len <= 256) return 1;
+        if (len <= 512) return 2;
+        return 3;
+      }
+
+      function checkLength(rows, technique) {
+        const fields = requiredFields[technique];
+        const buckets = [0, 0, 0, 0];
+        let truncatedCount = 0;
+        let considered = 0;
+        for (const row of rows) {
+          let rowValid = false;
+          let rowTruncated = false;
+          let rowMax = 0;
+          for (const field of fields) {
+            if (isValidStringField(row[field])) {
+              rowValid = true;
+              const len = row[field].length;
+              rowMax = Math.max(rowMax, len);
+              if (len > 512) rowTruncated = true;
+            }
+          }
+          if (!rowValid) continue;
+          considered++;
+          buckets[bucketIndex(rowMax)]++;
+          if (rowTruncated) truncatedCount++;
+        }
+        const truncatedPct = considered === 0 ? 0 : truncatedCount / considered;
+        return { buckets, truncatedCount, truncatedPct, considered };
+      }
+
+      function checkSize(rows, technique) {
+        const count = rows.length;
+        const threshold = thresholds[technique];
+        let status = "pass";
+        if (count < threshold.fail) status = "fail";
+        else if (count < threshold.warn) status = "warn";
+        return { count, threshold, status };
+      }
+
+      function jaccard(a, b) {
+        const tokA = new Set(a.toLowerCase().split(/\W+/).filter(Boolean));
+        const tokB = new Set(b.toLowerCase().split(/\W+/).filter(Boolean));
+        const inter = [...tokA].filter((t) => tokB.has(t)).length;
+        const union = new Set([...tokA, ...tokB]).size;
+        return union === 0 ? 0 : inter / union;
+      }
+
+      function checkDPO(rows) {
+        const buckets = [0, 0, 0, 0, 0];
+        let considered = 0;
+        let highSimCount = 0;
+        for (const row of rows) {
+          if (!isValidStringField(row.chosen) || !isValidStringField(row.rejected)) continue;
+          considered++;
+          const score = jaccard(row.chosen, row.rejected);
+          if (score <= 0.2) buckets[0]++;
+          else if (score <= 0.4) buckets[1]++;
+          else if (score <= 0.6) buckets[2]++;
+          else if (score <= 0.8) buckets[3]++;
+          else buckets[4]++;
+          if (score > 0.6) highSimCount++;
+        }
+        const highSimPct = considered === 0 ? 0 : highSimCount / considered;
+        return { buckets, highSimCount, highSimPct, considered };
+      }
+
+      function scoreHealth(schema, length, size, dpo, isDPO) {
+        let score = 0;
+        if (!isDPO) {
+          const w = { schema: 35, length: 35, size: 30 };
+          score += schema.passed ? w.schema : 0;
+          score += clamp(w.length - length.truncatedPct * w.length * 1.5, 0, w.length);
+          score += size.status === "pass" ? w.size : size.status === "warn" ? w.size * 0.5 : 0;
+        } else {
+          const w = { schema: 25, length: 25, size: 20, dpo: 30 };
+          score += schema.passed ? w.schema : 0;
+          score += clamp(w.length - length.truncatedPct * w.length * 1.5, 0, w.length);
+          score += size.status === "pass" ? w.size : size.status === "warn" ? w.size * 0.5 : 0;
+          score += clamp(w.dpo - dpo.highSimPct * w.dpo * 2, 0, w.dpo);
+        }
+        return Math.round(clamp(score, 0, 100));
+      }
+
+      function deriveVerdict(score) {
+        if (score >= 80) return { label: "READY TO TRAIN", color: "var(--green)" };
+        if (score >= 60) return { label: "NEEDS FIXES", color: "var(--amber)" };
+        return { label: "NOT READY", color: "var(--red)" };
+      }
+
+      function runAnalysis() {
+        if (!selectedTechnique) return;
+        if (!uploadedRows.length) {
+          renderSetupScreen("No valid rows are available to analyze.");
+          return;
+        }
+
+        renderProgressScreen();
+      }
+
+      function renderProgressScreen() {
+        activeScreen = "progress";
+        const screen = document.getElementById("screen");
+        screen.classList.remove("visible");
+
+        const steps = [
+          "Parsing JSONL file",
+          "Validating field schema",
+          "Checking length distribution",
+          "Evaluating dataset size",
+        ];
+        if (selectedTechnique === "DPO") {
+          steps.push("Scoring DPO pair divergence");
+        }
+
+        screen.innerHTML = `
+          <div class="card">
+            <div class="progress-head">Analyzing dataset...</div>
+            <div class="context-pill">${escapeHtml(uploadedFileMeta ? uploadedFileMeta.name : "dataset.jsonl")} · ${escapeHtml(selectedTechnique)}</div>
+            <div class="steps" id="steps">
+              ${steps
+                .map(
+                  (label, idx) => `
+                  <div class="step" data-step="${idx}">
+                    <span class="icon pending"></span>
+                    <span>${escapeHtml(label)}</span>
+                  </div>`
+                )
+                .join("")}
+            </div>
+          </div>
+        `;
+        requestAnimationFrame(() => screen.classList.add("visible"));
+
+        const stepEls = [...document.querySelectorAll(".step")];
+        let idx = 0;
+        const tick = () => {
+          if (activeScreen !== "progress") return;
+          if (idx > 0) {
+            const prevIcon = stepEls[idx - 1].querySelector(".icon");
+            prevIcon.className = "icon done";
+            prevIcon.innerHTML =
+              '<svg width="8" height="8" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 6.2 4.7 9 10 3.5" stroke="#fff" stroke-width="1.8" fill="none" stroke-linecap="round" stroke-linejoin="round"></path></svg>';
+          }
+
+          if (idx === stepEls.length) {
+            setTimeout(finishAnalysis, reducedMotion ? 10 : 180);
+            return;
+          }
+
+          const icon = stepEls[idx].querySelector(".icon");
+          icon.className = "icon running";
+          idx++;
+          setTimeout(tick, reducedMotion ? 15 : 300);
+        };
+        tick();
+      }
+
+      function finishAnalysis() {
+        const schema = checkSchema(uploadedRows, selectedTechnique);
+        const length = checkLength(uploadedRows, selectedTechnique);
+        const size = checkSize(uploadedRows, selectedTechnique);
+        const dpo = selectedTechnique === "DPO" ? checkDPO(uploadedRows) : null;
+        const score = scoreHealth(schema, length, size, dpo, selectedTechnique === "DPO");
+        const verdict = deriveVerdict(score);
+
+        const checks = buildChecks(schema, length, size, dpo);
+        const issueCounts = {
+          critical: checks.filter((c) => c.status === "critical").length,
+          warning: checks.filter((c) => c.status === "warning").length,
+          passed: checks.filter((c) => c.status === "passed").length,
+        };
+
+        analysisResults = {
+          schema,
+          length,
+          size,
+          dpo,
+          checks,
+          score,
+          verdict,
+          issueCounts,
+        };
+        renderResultsScreen();
+      }
+
+      function buildChecks(schema, length, size, dpo) {
+        const checks = [];
+        const fields = requiredFields[selectedTechnique];
+
+        checks.push({
+          key: "schema",
+          title: "Field Schema Validation",
+          affected: schema.missingCount,
+          status: schema.passed ? "passed" : "critical",
+          finding: schema.passed
+            ? `All required fields present for ${selectedTechnique}. Each row contains valid non-empty values.`
+            : `${schema.missingCount} rows are missing required fields for ${selectedTechnique}. Missing: ${schema.missingFields.join(", ") || fields.join(", ")}.`,
+          why: "SageMaker accepts syntactically valid JSONL, but inconsistent fields can lead to poor or unpredictable gradient updates during fine-tuning.",
+          fix: schema.passed
+            ? "No fix needed."
+            : `Add the missing fields to each row before uploading. For ${selectedTechnique}, every row must contain: ${fields.join(", ")}.`,
+          chart: null,
+        });
+
+        let lenStatus = "passed";
+        if (length.truncatedPct > 0.1) lenStatus = "critical";
+        else if (length.truncatedPct > 0) lenStatus = "warning";
+        checks.push({
+          key: "length",
+          title: "Prompt & Completion Length",
+          affected: length.truncatedCount,
+          status: lenStatus,
+          finding:
+            length.truncatedCount === 0
+              ? "All prompts and completions are within SageMaker's 512-character limit."
+              : `${length.truncatedCount} rows (${formatPct(length.truncatedPct)}%) exceed 512 characters and will be silently truncated by SageMaker during training.`,
+          why: "SageMaker truncates inputs exceeding 512 characters without any warning or error. Your model trains on incomplete data without you knowing.",
+          fix: "Truncate prompts and completions to 480 characters before upload (leaving a 32-char safety buffer), or split long examples into multiple shorter training pairs.",
+          chart: "length",
+        });
+
+        let sizeStatus = "passed";
+        if (size.status === "warn") sizeStatus = "warning";
+        if (size.status === "fail") sizeStatus = "critical";
+        checks.push({
+          key: "size",
+          title: `Dataset Size for ${selectedTechnique}`,
+          affected: size.count,
+          status: sizeStatus,
+          finding: `Your dataset has ${size.count} examples. ${selectedTechnique} works best with at least ${size.threshold.warn} examples.`,
+          why: "Small datasets underfit quickly and increase instability across epochs, especially when preference or reward-style objectives are used.",
+          fix:
+            size.status === "pass"
+              ? "No fix needed."
+              : "Add more training examples before launching. Consider using SageMaker's Synthetic Data Generation feature to augment your dataset.",
+          chart: "size",
+        });
+
+        if (selectedTechnique === "DPO" && dpo) {
+          let dpoStatus = "passed";
+          if (dpo.highSimPct > 0.15) dpoStatus = "critical";
+          else if (dpo.highSimPct >= 0.05) dpoStatus = "warning";
+          checks.push({
+            key: "dpo",
+            title: "Chosen / Rejected Divergence",
+            affected: dpo.highSimCount,
+            status: dpoStatus,
+            finding:
+              dpo.highSimCount === 0
+                ? "DPO pairs show strong divergence. The model will receive a clear learning signal."
+                : `${dpo.highSimCount} pairs (${formatPct(dpo.highSimPct)}%) have highly similar chosen and rejected responses. These pairs may not provide a useful learning signal.`,
+            why: "DPO training requires chosen and rejected responses to be meaningfully different. Near-identical pairs produce no gradient signal - the model can't learn a preference.",
+            fix: "Review and replace low-divergence pairs. Chosen responses should clearly outperform rejected responses on your target quality dimension.",
+            chart: "dpo",
+          });
+        }
+        return checks;
+      }
+
+      function resultCardMarkup(check, idx) {
+        return `
+          <div class="card result-card fade-seq" style="transition-delay:${reducedMotion ? 0 : idx * 80}ms" data-fade-item>
+            <div class="result-head">
+              <span class="severity-chip ${severityClass(check.status)}">${severityLabel(check.status)}</span>
+              <span class="check-title">${escapeHtml(check.title)}</span>
+              <span class="affected-badge">${check.affected}</span>
+            </div>
+            <div class="check-text">${escapeHtml(check.finding)}</div>
+            <div class="why-block"><b>Why this matters:</b> ${escapeHtml(check.why)}</div>
+            ${
+              check.chart === "length"
+                ? '<div class="chart-wrap"><canvas id="lengthChart" aria-label="Length distribution chart"></canvas></div>'
+                : ""
+            }
+            ${
+              check.chart === "dpo"
+                ? '<div class="chart-wrap"><canvas id="dpoChart" aria-label="DPO divergence chart"></canvas></div>'
+                : ""
+            }
+            ${
+              check.chart === "size"
+                ? `<div class="size-meter">
+                    <div class="size-bar"><div class="size-fill" id="sizeFill"></div></div>
+                    <div class="size-ticks"><span>min ${analysisResults.size.threshold.fail}</span><span>recommended ${analysisResults.size.threshold.warn}</span></div>
+                  </div>`
+                : ""
+            }
+            <div class="fix-block"><span class="fix-label">FIX › </span><span class="fix-text">${escapeHtml(check.fix)}</span></div>
+          </div>
+        `;
+      }
+
+      function renderResultsScreen() {
+        activeScreen = "results";
+        resetCharts();
+        const screen = document.getElementById("screen");
+        const { score, verdict, checks, issueCounts } = analysisResults;
+        const scoreColor = score >= 80 ? "var(--green)" : score >= 60 ? "var(--amber)" : "var(--red)";
+        screen.classList.remove("visible");
+
+        screen.innerHTML = `
+          ${
+            parseErrorCount > 0
+              ? `<div class="parse-warning">Skipped ${parseErrorCount} unparseable JSONL line${parseErrorCount > 1 ? "s" : ""}. Valid rows were analyzed.</div>`
+              : ""
+          }
+          <div class="card">
+            <div class="summary">
+              <div class="summary-col score-wrap">
+                <div class="score-value" id="scoreValue" style="color:${scoreColor}">0 <span class="suffix">/ 100</span></div>
+                <div class="verdict" style="color:${verdict.color}">${verdict.label}</div>
+              </div>
+              <div class="summary-col">
+                <div class="stats-grid">
+                  <div><div class="stat-label">ROWS</div><div class="stat-value">${uploadedRows.length}</div></div>
+                  <div><div class="stat-label">TECHNIQUE</div><div class="stat-value">${escapeHtml(selectedTechnique)}</div></div>
+                  <div><div class="stat-label">FLAGGED</div><div class="stat-value">${checks.reduce((sum, c) => sum + (c.status === "passed" ? 0 : c.affected), 0)} rows</div></div>
+                  <div><div class="stat-label">FILE SIZE</div><div class="stat-value">${escapeHtml(uploadedFileMeta ? uploadedFileMeta.meta : "-")}</div></div>
+                </div>
+              </div>
+              <div class="summary-col">
+                <div class="chip-stack">
+                  <span class="severity-chip sev-critical summary-chip">Critical: ${issueCounts.critical}</span>
+                  <span class="severity-chip sev-warning summary-chip">Warning: ${issueCounts.warning}</span>
+                  <span class="severity-chip sev-passed summary-chip">Passed: ${issueCounts.passed}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          ${checks.map((check, idx) => resultCardMarkup(check, idx + 1)).join("")}
+
+          <div class="card result-card fade-seq" style="transition-delay:${reducedMotion ? 0 : checks.length * 80}ms" data-fade-item>
+            <div class="bottom-actions">
+              <button class="action-btn primary" id="downloadBtn">Download Report</button>
+              <button class="action-btn ghost" id="resetBtn">Check Another Dataset</button>
+            </div>
+          </div>
+        `;
+
+        requestAnimationFrame(() => {
+          screen.classList.add("visible");
+          document.querySelectorAll("[data-fade-item]").forEach((el) => el.classList.add("show"));
+          animateScore(score);
+          renderCharts();
+          animateSizeBar();
+        });
+
+        document.getElementById("downloadBtn").addEventListener("click", downloadReport);
+        document.getElementById("resetBtn").addEventListener("click", resetApp);
+      }
+
+      function animateScore(target) {
+        const node = document.getElementById("scoreValue");
+        if (!node) return;
+        if (reducedMotion) {
+          node.firstChild.textContent = `${target} `;
+          return;
+        }
+        const start = performance.now();
+        const duration = 600;
+        const step = (now) => {
+          const t = clamp((now - start) / duration, 0, 1);
+          const val = Math.round(target * t);
+          node.firstChild.textContent = `${val} `;
+          if (t < 1) requestAnimationFrame(step);
+        };
+        requestAnimationFrame(step);
+      }
+
+      function animateSizeBar() {
+        const fill = document.getElementById("sizeFill");
+        if (!fill || !analysisResults.size) return;
+        const { count, threshold, status } = analysisResults.size;
+        const widthPct = Math.min(100, (count / threshold.warn) * 100);
+        fill.style.background = status === "pass" ? "var(--green)" : status === "warn" ? "var(--amber)" : "var(--red)";
+        requestAnimationFrame(() => {
+          fill.style.width = `${widthPct}%`;
+        });
+      }
+
+      function baseChartOptions() {
+        return {
+          responsive: true,
+          maintainAspectRatio: false,
+          animation: { duration: reducedMotion ? 0 : 400 },
+          plugins: {
+            legend: { display: false },
+            tooltip: {
+              backgroundColor: "#21262f",
+              borderColor: "rgba(255,255,255,0.08)",
+              borderWidth: 1,
+              padding: 8,
+              titleColor: "#e2e4e9",
+              bodyColor: "#7a8494",
+              cornerRadius: 4,
+            },
+          },
+          scales: {
+            x: { grid: { display: false }, ticks: { color: "#7a8494" } },
+            y: {
+              grid: { display: false },
+              ticks: { display: false },
+              border: { display: false },
+            },
+          },
+        };
+      }
+
+      function renderCharts() {
+        if (!window.Chart || !analysisResults.length) return;
+
+        const lengthEl = document.getElementById("lengthChart");
+        if (lengthEl) {
+          const labels = ["0-128", "128-256", "256-512", "512+"];
+          const len = analysisResults.length;
+          const colors = ["rgba(45,212,191,0.6)", "rgba(45,212,191,0.6)", "rgba(45,212,191,0.6)", len.buckets[3] > 0 ? "#f87171" : "#2dd4bf"];
+          charts.length = new Chart(lengthEl, {
+            type: "bar",
+            data: {
+              labels,
+              datasets: [{ data: len.buckets, borderRadius: 3, backgroundColor: colors }],
+            },
+            options: baseChartOptions(),
+          });
+        }
+
+        const dpoEl = document.getElementById("dpoChart");
+        if (dpoEl && analysisResults.dpo) {
+          const labels = ["0.0-0.2", "0.2-0.4", "0.4-0.6", "0.6-0.8", "0.8-1.0"];
+          const colors = labels.map((_, idx) => (idx >= 3 ? "#f87171" : "rgba(45,212,191,0.6)"));
+          charts.dpo = new Chart(dpoEl, {
+            type: "bar",
+            data: {
+              labels,
+              datasets: [{ data: analysisResults.dpo.buckets, borderRadius: 3, backgroundColor: colors }],
+            },
+            options: {
+              ...baseChartOptions(),
+              scales: {
+                ...baseChartOptions().scales,
+                x: {
+                  ...baseChartOptions().scales.x,
+                  title: {
+                    display: true,
+                    text: "Jaccard Similarity (lower = more different)",
+                    color: "#7a8494",
+                  },
+                },
+              },
+            },
+          });
+        }
+      }
+
+      function checkSectionText(check) {
+        return `[${severityLabel(check.status)}] ${check.title}
+Finding: ${check.finding}
+Recommendation: ${check.fix}`;
+      }
+
+      function downloadReport() {
+        if (!analysisResults || !analysisResults.checks) return;
+        const lines = [
+          "----------------------------------------",
+          "sm/dataquality Report",
+          `Generated: ${new Date().toISOString()}`,
+          "----------------------------------------",
+          `File: ${uploadedFileMeta ? uploadedFileMeta.name : "N/A"}`,
+          `Technique: ${selectedTechnique}`,
+          `Rows analyzed: ${uploadedRows.length}`,
+          `Overall Score: ${analysisResults.score} / 100 - ${analysisResults.verdict.label}`,
+          parseErrorCount > 0 ? `Parse warnings: ${parseErrorCount} unparsable line(s) skipped` : "Parse warnings: None",
+          "----------------------------------------",
+          ...analysisResults.checks.map((c) => `${checkSectionText(c)}\n----------------------------------------`),
+        ];
+
+        const blob = new Blob([lines.join("\n")], { type: "text/plain;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement("a");
+        a.href = url;
+        a.download = "sm-dataquality-report.txt";
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+
+      function resetApp() {
+        uploadedRows = [];
+        selectedTechnique = "";
+        analysisResults = {};
+        uploadedFileMeta = null;
+        parseErrorCount = 0;
+        activeScreen = "setup";
+        resetCharts();
+        document.getElementById("fileInput").value = "";
+        renderSetupScreen("");
+      }
+
+      function generateSampleData() {
+        const rows = [];
+        const topics = [
+          "neural networks",
+          "gradient descent",
+          "attention mechanisms",
+          "tokenization",
+          "fine-tuning",
+          "embeddings",
+          "loss functions",
+          "backpropagation",
+        ];
+        for (let i = 0; i < 150; i++) {
+          const topic = topics[i % topics.length];
+          rows.push({
+            prompt: `Explain the concept of ${topic} in simple terms.`,
+            chosen: `A clear, detailed explanation of ${topic} that covers key points and provides useful examples for understanding in practical workflows.`,
+            rejected: `${topic}.`,
+          });
+        }
+        for (let i = 0; i < 80; i++) {
+          rows.push({
+            prompt:
+              "In machine learning model training and fine-tuning workflows, especially with foundation models on Amazon SageMaker, practitioners must account for data quality, format compatibility, length limits, and objective-specific requirements across supervised fine-tuning, direct preference optimization, reinforcement learning from verifiable rewards, and reinforcement learning from AI feedback. ".repeat(
+                2
+              ),
+            chosen: "A concise and accurate response.",
+            rejected: "An incomplete response.",
+          });
+        }
+        for (let i = 0; i < 120; i++) {
+          rows.push({
+            prompt: `What is the best approach for task ${i}?`,
+            chosen: `The best approach for task ${i} involves careful consideration of requirements.`,
+            rejected: `The best approach for task ${i} involves careful consideration of requirements and constraints.`,
+          });
+        }
+        return rows;
+      }
+
+      document.getElementById("fileInput").addEventListener("change", (event) => {
+        const file = event.target.files && event.target.files[0];
+        if (file) loadFile(file);
+      });
+
+      renderSetupScreen("");
+    </script>
+  </body>
+</html>
